@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Iris&#39; Blog</title>
+  <subtitle>step by step</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://irisgithub.github.io/"/>
+  <updated>2017-03-16T10:03:15.959Z</updated>
+  <id>https://irisgithub.github.io/</id>
+  
+  <author>
+    <name>Iris</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端故事一则</title>
+    <link href="https://irisgithub.github.io/2017/03/16/%E5%89%8D%E7%AB%AF%E6%95%85%E4%BA%8B%E4%B8%80%E5%88%99/"/>
+    <id>https://irisgithub.github.io/2017/03/16/前端故事一则/</id>
+    <published>2017-03-16T09:13:27.000Z</published>
+    <updated>2017-03-16T10:03:15.959Z</updated>
+    
+    <content type="html"><![CDATA[<p>本菜刚开始写前端页面，目录是这样的，js放一起，html放一起：<br><img src="../../../../assets/img/3-16-1.png" align="center"><br>然后，我开始学nwjs啦，多了一个package.json文件（plugins打算用来放插件，是空的；.log文件打算用node的file模块写入日志），之后本菜默默开始写登录小窗，菜单，托盘，然后…写完demo明白自己很菜开始好好学js。<br><img src="../../../../assets/img/3-16-2.png" align="center"></p>
+<a id="more"></a>
+<p>开始刷书，刷博客，刷代码，看小伙伴们的代码…于是我开始写简单页面啦，开始用jquery（获取和操作DOM元素，写ajax请求），angularjs，最初目录是这样：<br><img src="../../../../assets/img/3-16-3.png" align="center"><br>开始安装node，利用npm管理模块，学着小伙伴用webpack，一个入口index.js文件，功能分开写再打包成一个js文件；装fis3，更改代码可以自动刷新页面，目录变成这样：<br><img src="../../../../assets/img/3-16-4.png" align="center"><br>开始好好学angularjs，路由，数据绑定，指令，师傅组装的ui组件…发现自己真的菜，好多知识要学，嗯！舍弃fis3（文件多了，release变慢，-wL要等好久），用http-server，目录变成这样：<br><img src="../../../../assets/img/3-16-5.png" align="center"><br>然后，发现gulp,新大陆！添加一个gulpfile.js文件，用gulp-connect创建web服务器；可以watch页面，gulp-livereload自动刷新；嵌入原来的webpack.config.js还能继续打包；只用运行一个gulp，开心！</p>
+<p>某一天，我发现我的cpu原来是这样：<br><img src="../../../../assets/img/3-16-6.png" align="center"><br>开了gulp之后，变成这样：<br><img src="../../../../assets/img/3-16-7.png" align="center"></p>
+<p>………</p>
+<p>我想这一定是我的错！</p>
+<p>………</p>
+<p>最后发现用gulp来watch时一定不要加很多文件啊！只watch经常改变的。不然电脑变得超级卡，还以为自己一脚把主机踢坏了(⊙v⊙)…..就酱！</p>
+<p>感谢师傅！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本菜刚开始写前端页面，目录是这样的，js放一起，html放一起：&lt;br&gt;&lt;img src=&quot;../../../../assets/img/3-16-1.png&quot;   align=center /&gt;&lt;br&gt;然后，我开始学nwjs啦，多了一个package.json文件（plugins打算用来放插件，是空的；.log文件打算用node的file模块写入日志），之后本菜默默开始写登录小窗，菜单，托盘，然后…写完demo明白自己很菜开始好好学js。&lt;br&gt;&lt;img src=&quot;../../../../assets/img/3-16-2.png&quot;   align=center /&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Font-end" scheme="https://irisgithub.github.io/categories/font-end/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>字符串操作----js笔记</title>
+    <link href="https://irisgithub.github.io/2017/03/02/JS%E7%AC%94%E8%AE%B0/"/>
+    <id>https://irisgithub.github.io/2017/03/02/JS笔记/</id>
+    <published>2017-03-02T10:44:08.000Z</published>
+    <updated>2017-03-15T02:28:18.520Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="截取字符串："><a href="#截取字符串：" class="headerlink" title="截取字符串："></a>截取字符串：</h4><p><strong>1. split： 把一个字符串分割成字符串数组。</strong></p>
+<p><em>功能</em> ：使用一个指定的分隔符把字符串分隔存储到数组<br><em>语法</em> ：<font color="red">str.split(separator,size)</font><br><em>参数</em> ：</p>
+<ul>
+<li>str：必选项。要截取的字符串。</li>
+<li>separator: 必选项。要分割的条件，是字符串或表达式。</li>
+<li>size：可选项。返回数组的长度。不定义则全部返回。</li>
+</ul>
+<p><em>实例</em> ：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=”jpg|bmp|gif|ico|png”; arr=str.split(”|”);<span class="comment">//arr是一个包含字符值”jpg”、”bmp”、”gif”、”ico”和”png”的数组</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p><strong>2. slice：   提取字符串的某个部分。</strong></p>
+<p><em>功能</em>：返回一个新的数组，包含从start到end（不包括该元素）的arrayobject中的元素。<br><em>语法</em>：<font color="red">str.slice(startPos,endPos)</font><br><em>参数</em>：</p>
+<ul>
+<li>startPos: 必选项。字符串的起始位置。如果参数负数，则从字符串的结尾处算起。 也就是说，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。</li>
+<li>endPos: 可选项。提取字符串的结束小标。 如果没有指定该参数，那么切分的数组包含从 start 到数组结束的所有元素。如果这个参数是负数，那么它规定的是从数组尾部开始算起的元素。</li>
+</ul>
+<p><em>实例</em>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">'ahji3o3s4e6p8a0sdewqdasj'</span></div><div class="line">alert(str.slice(<span class="number">2</span>,<span class="number">5</span>))   <span class="comment">//结果ji3</span></div></pre></td></tr></table></figure></p>
+<p><strong>3. substring：  返回指定位置的子字符串。</strong></p>
+<p><em>功能</em>：用于提取字符串中介于两个指定下标之间的字符。<br><em>语法</em>：<font color="red">str.substring(startPos,endPos)</font><br><em>参数</em>：</p>
+<ul>
+<li>str: 必选项。要提取的字符串。</li>
+<li>startPos: 必选项。子字符串的起始位置，该索引从0开始计算。 一个非负的整数，规定要提取的子串的第一个字符在 stringObject 中的位置。</li>
+<li>endPos: 可选项。子字符串的结束位置，该索引从0开始计算。 一个非负的整数，比要提取的子串的最后一个字符在 stringObject 中的位置多 1。 如果省略该参数，那么返回的子串会一直到字符串的结尾。</li>
+</ul>
+<blockquote>
+<p>注： 返回 一个新的字符串，该字符串值包含 stringObject 的一个子字符串，其内容是从 start 处到 stop-1 处的所有字符，其长度为 stop 减 start。 说明 substring 方法返回的子串包括 start 处的字符，但不包括 end 处的字符。 如果 start 与 end 相等，那么该方法返回的就是一个空串（即长度为 0 的字符串）。 如果 start 比 end 大，那么该方法在提取子串之前会先交换这两个参数。 如果 start 或 end 为负数，那么它将被替换为 0。</p>
+</blockquote>
+<p><em>实例</em>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">str=<span class="string">'ahji3o3s4e6p8a0sdewqdasj'</span></div><div class="line">alert(str.substring(<span class="number">2</span>,<span class="number">6</span>))   <span class="comment">//结果为ji3o3</span></div></pre></td></tr></table></figure></p>
+<p><strong>4. substr:    返回字符串中指定位置开始的指定长度的子字符串。</strong></p>
+<p><em>语法</em>：<font color="red">str.substr(startPos,length)</font><br><em>参数</em>：</p>
+<ul>
+<li>str：必选项。要提取的字符串。</li>
+<li>startPos: 必选项。返回字符串的起始位置，单位为数字。 字符串中的第一个字符的索引为 0。为负数，则默认为0</li>
+<li>length: 可选项。返回字符串的字符个数。 说明 如果 length 为 0 或负数，将返回一个空字符串。 如果没有指定该参数，则子字符串将延续到stringObject的最后。</li>
+</ul>
+<p><em>实例</em>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">"0123456789"</span>;</div><div class="line">alert(str.substring(<span class="number">5</span>));	<span class="comment">//"56789"</span></div><div class="line">alert(str.substring(<span class="number">10</span>));	<span class="comment">//""</span></div><div class="line">alert(str.substring(<span class="number">2</span>,<span class="number">12</span>));	<span class="comment">//"23456789"</span></div><div class="line">alert(str.substring(<span class="number">2</span>,<span class="number">-2</span>));	<span class="comment">//"01"</span></div><div class="line">alert(str.substring(<span class="number">-1</span>,<span class="number">5</span>));	<span class="comment">//"01234"</span></div></pre></td></tr></table></figure></p>
+<h4 id="合并字符串"><a href="#合并字符串" class="headerlink" title="合并字符串"></a>合并字符串</h4><p><strong>1. join</strong></p>
+<p><em>功能</em>：使用您选择的分隔符将一个数组合并为一个字符串。</p>
+<p><em>实例</em>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> delimitedString=myArray.join(delimiter);</div><div class="line"><span class="keyword">var</span> myList=<span class="keyword">new</span> <span class="built_in">Array</span>(”jpg”,”bmp”,”gif”,”ico”,”png”);</div><div class="line"><span class="keyword">var</span> portableList=myList.join(”|”);<span class="comment">//结果是jpg|bmp|gif|ico|png</span></div></pre></td></tr></table></figure></p>
+<p><strong>2. concat</strong></p>
+<p><em>功能</em>：将两个数组连接在一起。</p>
+<p><em>实例</em>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr1=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</div><div class="line">arr2=[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</div><div class="line">alert(arr1.concat(arr2))  <span class="comment">//结果为[1,2,3,4,5,6,7,8]</span></div></pre></td></tr></table></figure></p>
+<h4 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h4><p><strong>1. charAt</strong></p>
+<p> <em>功能</em>：返回指定位置的<font color="red">字符</font>。字符串中第一个字符的下标是 0。如果参数 index 不在 0 与 string.length 之间，该方法将返回一个空字符串。</p>
+<p><em>实例</em>:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">'a,g,i,d,o,v,w,d,k,p'</span></div><div class="line">alert(str.charAt(<span class="number">2</span>))  <span class="comment">//结果为g</span></div></pre></td></tr></table></figure></p>
+<p><strong>2. charCodeAt</strong></p>
+<p><em>功能</em>：charCodeAt() 方法可返回指定位置的字符的<font color="red">Unicode 编码</font>。这个返回值是 0 - 65535 之间的整数。<br>方法 charCodeAt() 与 charAt() 方法执行的操作相似，只不过前者返回的是位于指定位置的字符的编码，而后者返回的是字符子串。</p>
+<p><em>实例</em>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">'a,g,i,d,o,v,w,d,k,p'</span></div><div class="line">alert(str.charCodeAt(<span class="number">2</span>))  <span class="comment">//结果为103。即g的Unicode编码为103</span></div></pre></td></tr></table></figure></p>
+<p><strong>3. replace:   用于在字符串中用一些字符替换另一些字符。</strong></p>
+<p><em>语法</em>：<font color="red">str.replace(string,replacement)</font><br><em>参数</em>：</p>
+<ul>
+<li>str：必选项。要替换的字符串。</li>
+<li>string:必选项。正则对象。</li>
+<li>replacement: 必选项。要替换的字符。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;截取字符串：&quot;&gt;&lt;a href=&quot;#截取字符串：&quot; class=&quot;headerlink&quot; title=&quot;截取字符串：&quot;&gt;&lt;/a&gt;截取字符串：&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;1. split： 把一个字符串分割成字符串数组。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;功能&lt;/em&gt; ：使用一个指定的分隔符把字符串分隔存储到数组&lt;br&gt;&lt;em&gt;语法&lt;/em&gt; ：&lt;font color=red&gt;str.split(separator,size)&lt;/font&gt;&lt;br&gt;&lt;em&gt;参数&lt;/em&gt; ：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;str：必选项。要截取的字符串。&lt;/li&gt;
+&lt;li&gt;separator: 必选项。要分割的条件，是字符串或表达式。&lt;/li&gt;
+&lt;li&gt;size：可选项。返回数组的长度。不定义则全部返回。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;实例&lt;/em&gt; ：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; str=”jpg|bmp|gif|ico|png”; arr=str.split(”|”);&lt;span class=&quot;comment&quot;&gt;//arr是一个包含字符值”jpg”、”bmp”、”gif”、”ico”和”png”的数组&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Font-end" scheme="https://irisgithub.github.io/categories/font-end/"/>
+    
+    
+      <category term="JavaScript" scheme="https://irisgithub.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>wpf笔记</title>
+    <link href="https://irisgithub.github.io/2017/03/02/wpf%E7%AC%94%E8%AE%B0/"/>
+    <id>https://irisgithub.github.io/2017/03/02/wpf笔记/</id>
+    <published>2017-03-02T10:41:51.000Z</published>
+    <updated>2017-03-15T02:27:30.897Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="改写窗体："><a href="#改写窗体：" class="headerlink" title="改写窗体："></a>改写窗体：</h3><p><strong>1. WPF中使用默认窗口框架的外观，可以更改属性：(<a href="http://www.cnblogs.com/libaoheng/archive/2011/11/18/2253751.html" target="_blank" rel="external">参考</a>)</strong><br><em>Icon</em>: 指定窗口的图标；<br><em>Title</em>: 指定窗口的标题；<br><em>WindowStyle</em>: 指定窗口样式，有4个取值：</p>
+<ul>
+<li>None，无边框；（当ResizeMode属性为NoResize时，仅剩下窗口核心。）</li>
+<li>SingleBorderWindow，单边框【默认】；</li>
+<li>ThreeDBorderWindow，3D边框；</li>
+<li>ToolBorderWindow，工具箱窗口；</li>
+<li>ResizeMode 是指定大小调节样式，有4个取值：</li>
+<li>NoResize，不可调节，同时没有最大最小按钮；</li>
+<li>CanMinimize，不可调节。但可以最小化；（此时最大化按钮不可用）</li>
+<li>CanResize，可调节【默认】；</li>
+<li>CanResizeWithGrid，可根据网格调节；（窗口右下脚显示可调节网格）</li>
+<li>WindowStartLocation 指定窗口初始位置，有3个取值：</li>
+<li>Manual，手工指定位置，表示可以通过设置其Top、Left属性值来决定窗口的初始位置；</li>
+<li>CenterScreen，屏幕中央；</li>
+<li>CenterOwner，父窗体中央；<blockquote>
+<p>另外：</p>
+<ul>
+<li>MaxWidth、MinWidth、MaxHeight、MinHeight ：表示窗口最大宽度、最小宽度、最大高度、最小高度。可以通过得到和更改这些属性值，来获取和改变窗口的大小和长宽范围。</li>
+<li>TitlebarHeight=”45”          //修改窗体titlebar高度；</li>
+<li>AllowsTransparency：获取或设置一个值，该值指示窗口的工作区是否支持透明；</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<a id="more"></a>
+<p><strong>2. 设置窗体无边框：</strong><br>     设置 WindowStyle=”None”、  AllowsTransparency=”True” 即可。<br>     <em>如下</em>：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Window</span></span></div><div class="line">    <span class="attr">x:Class</span>=<span class="string">"WpfApplication1.MainWindow"</span> </div><div class="line">    <span class="attr">xmlns</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml/presentation"</span> </div><div class="line">    <span class="attr">xmlns:x</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml"</span> </div><div class="line">    <span class="attr">Title</span>=<span class="string">"MainWindow"</span> <span class="attr">Height</span>=<span class="string">"350"</span> <span class="attr">Width</span>=<span class="string">"525"</span>   </div><div class="line">    <span class="attr">WindowStyle</span>=<span class="string">"None"</span> </div><div class="line">    <span class="attr">AllowsTransparency</span>=<span class="string">"True"</span>&gt; </div><div class="line">    <span class="tag">&lt;<span class="name">Grid</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;/<span class="name">Grid</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">Window</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>3.窗口拖放：</strong><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Window_MouseLeftButtonDown</span>(<span class="params"><span class="keyword">object</span> sender, MouseButtonEventArgs e</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.DragMove();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><em>调用：</em></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.MouseLeftButtonDown += <span class="keyword">delegate</span> &#123; DragMove(); &#125;;</div></pre></td></tr></table></figure>
+<p>或：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">MouseDown=<span class="string">"Window_MouseDown"</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Window_MouseDown</span>(<span class="params"><span class="keyword">object</span> sender, MouseButtonEventArgs e</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span> (e.LeftButton == MouseButtonState.Pressed)&#123;</div><div class="line">        DragMove();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>4. 自定义窗体最大化、最小化、关闭  </strong><br>如下：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">btn_min_Click</span>(<span class="params"><span class="keyword">object</span> sender, RoutedEventArgs e</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.WindowState = WindowState.Minimized;     </div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">btn_max_Click</span>(<span class="params"><span class="keyword">object</span> sender, RoutedEventArgs e</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.WindowState == WindowState.Maximized)&#123;</div><div class="line">    	<span class="keyword">this</span>.WindowState = WindowState.Normal; <span class="comment">//还原 </span></div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">       <span class="keyword">this</span>.WindowState = WindowState.Maximized;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">btn_close_Click</span>(<span class="params"><span class="keyword">object</span> sender, RoutedEventArgs e</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.Close();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>5. 窗口阴影：</strong>(WPF4.5)<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Window</span> <span class="attr">x:Class</span>=<span class="string">"WPFTest.MainWindow"</span></span></div><div class="line">    <span class="attr">xmlns</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml/presentation"</span></div><div class="line">    <span class="attr">xmlns:x</span>=<span class="string">"http://schemas.microsoft.com/winfx/2006/xaml"</span></div><div class="line">    <span class="attr">Title</span>=<span class="string">"MainWindow"</span></div><div class="line">    <span class="attr">Width</span>=<span class="string">"525"</span></div><div class="line">    <span class="attr">Height</span>=<span class="string">"350"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">WindowChrome.WindowChrome</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">WindowChrome</span> <span class="attr">CaptionHeight</span>=<span class="string">"30"</span></span></div><div class="line">                      <span class="attr">CornerRadius</span>=<span class="string">"0"</span></div><div class="line">                      <span class="attr">GlassFrameThickness</span>=<span class="string">"1"</span></div><div class="line">                      <span class="attr">NonClientFrameEdges</span>=<span class="string">"None"</span></div><div class="line">                      <span class="attr">ResizeBorderThickness</span>=<span class="string">"5"</span></div><div class="line">                      <span class="attr">UseAeroCaptionButtons</span>=<span class="string">"False"</span> /&gt;</div><div class="line">    	<span class="tag">&lt;/<span class="name">WindowChrome</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Grid</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Window</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="tooltip"><a href="#tooltip" class="headerlink" title="tooltip"></a>tooltip</h3><p>给某个空间增加tooltip显示详细信息:</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Tip_MouseMove</span>(<span class="params"><span class="keyword">object</span> sender, MouseEventArgs e</span>)</span>&#123;</div><div class="line">    ListViewItem listitem = (sender <span class="keyword">as</span> Image).TryFindParent&lt;ListViewItem&gt;();</div><div class="line">    FDObject item = (FDObject)listitem.DataContext;           </div><div class="line">    <span class="keyword">if</span> (item != <span class="literal">null</span>)&#123;</div><div class="line">        (sender <span class="keyword">as</span> Image).ToolTip = item.path;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>直接用control.Tooltip=text;   在鼠标移入事件中确定</p>
+<h3 id="System-Drawing-Image对象"><a href="#System-Drawing-Image对象" class="headerlink" title="System.Drawing.Image对象"></a>System.Drawing.Image对象</h3><p><strong>System.Drawing.Image 和 System.Windows.Media.ImageSource 之间转换</strong><br><strong>例：</strong><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">MemoryStream ms = <span class="keyword">new</span> MemoryStream ();</div><div class="line"><span class="keyword">var</span> bitmap = <span class="keyword">new</span> BitmapImage();</div><div class="line">bitmap.BeginInit();</div><div class="line">userImage.Save (ms,System.Drawing.Imaging. ImageFormat.Bmp);</div><div class="line">ms.Seek(<span class="number">0</span>, SeekOrigin.Begin);</div><div class="line">bitmap.StreamSource = ms;</div><div class="line">bitmap.EndInit();</div><div class="line">emplImage.Source = bitmap;</div><div class="line"><span class="keyword">return</span> emplImage;</div></pre></td></tr></table></figure></p>
+<h3 id="旋转动画："><a href="#旋转动画：" class="headerlink" title="旋转动画："></a>旋转动画：</h3><p><strong>例：</strong><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Button_Click</span>(<span class="params"><span class="keyword">object</span> sender, RoutedEventArgs e</span>)</span>&#123;</div><div class="line">    RotateTransform a = <span class="keyword">new</span> RotateTransform();</div><div class="line">    Refresh.RenderTransform = a;</div><div class="line">    Refresh.RenderTransformOrigin = <span class="keyword">new</span> Point(<span class="number">0.5</span>, <span class="number">0.5</span>);</div><div class="line">    DoubleAnimation myDouble = <span class="keyword">new</span> DoubleAnimation(<span class="number">0</span>, <span class="number">360</span>, <span class="keyword">new</span> Duration(TimeSpan.FromSeconds(<span class="number">1</span>)));</div><div class="line">    Storyboard story = <span class="keyword">new</span> Storyboard();</div><div class="line">    myDouble.RepeatBehavior = RepeatBehavior.Forever;</div><div class="line">    story.Children.Add(myDouble);</div><div class="line">    Storyboard.SetTarget(myDouble, Refresh);</div><div class="line">    Storyboard.SetTargetProperty(myDouble, <span class="keyword">new</span> PropertyPath(<span class="string">"RenderTransform.Angle"</span>));</div><div class="line">    story.Begin();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Grid</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">TextBlock</span> <span class="attr">x:Name</span>=<span class="string">"Refresh"</span>  <span class="attr">VerticalAlignment</span>=<span class="string">"Center"</span> <span class="attr">HorizontalAlignment</span>=<span class="string">"Center"</span>    <span class="attr">Text</span>=<span class="string">"&amp;#xe712;"</span>   /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">VerticalAlignment</span>=<span class="string">"Bottom"</span> <span class="attr">HorizontalAlignment</span>=<span class="string">"Center"</span> <span class="attr">Width</span>=<span class="string">"100"</span> <span class="attr">Height</span>=<span class="string">"50"</span> <span class="attr">Click</span>=<span class="string">"Button_Click"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;改写窗体：&quot;&gt;&lt;a href=&quot;#改写窗体：&quot; class=&quot;headerlink&quot; title=&quot;改写窗体：&quot;&gt;&lt;/a&gt;改写窗体：&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;1. WPF中使用默认窗口框架的外观，可以更改属性：(&lt;a href=&quot;http://www.cnblogs.com/libaoheng/archive/2011/11/18/2253751.html&quot;&gt;参考&lt;/a&gt;)&lt;/strong&gt;&lt;br&gt;&lt;em&gt;Icon&lt;/em&gt;: 指定窗口的图标；&lt;br&gt;&lt;em&gt;Title&lt;/em&gt;: 指定窗口的标题；&lt;br&gt;&lt;em&gt;WindowStyle&lt;/em&gt;: 指定窗口样式，有4个取值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;None，无边框；（当ResizeMode属性为NoResize时，仅剩下窗口核心。）&lt;/li&gt;
+&lt;li&gt;SingleBorderWindow，单边框【默认】；&lt;/li&gt;
+&lt;li&gt;ThreeDBorderWindow，3D边框；&lt;/li&gt;
+&lt;li&gt;ToolBorderWindow，工具箱窗口；&lt;/li&gt;
+&lt;li&gt;ResizeMode 是指定大小调节样式，有4个取值：&lt;/li&gt;
+&lt;li&gt;NoResize，不可调节，同时没有最大最小按钮；&lt;/li&gt;
+&lt;li&gt;CanMinimize，不可调节。但可以最小化；（此时最大化按钮不可用）&lt;/li&gt;
+&lt;li&gt;CanResize，可调节【默认】；&lt;/li&gt;
+&lt;li&gt;CanResizeWithGrid，可根据网格调节；（窗口右下脚显示可调节网格）&lt;/li&gt;
+&lt;li&gt;WindowStartLocation 指定窗口初始位置，有3个取值：&lt;/li&gt;
+&lt;li&gt;Manual，手工指定位置，表示可以通过设置其Top、Left属性值来决定窗口的初始位置；&lt;/li&gt;
+&lt;li&gt;CenterScreen，屏幕中央；&lt;/li&gt;
+&lt;li&gt;CenterOwner，父窗体中央；&lt;blockquote&gt;
+&lt;p&gt;另外：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MaxWidth、MinWidth、MaxHeight、MinHeight ：表示窗口最大宽度、最小宽度、最大高度、最小高度。可以通过得到和更改这些属性值，来获取和改变窗口的大小和长宽范围。&lt;/li&gt;
+&lt;li&gt;TitlebarHeight=”45”          //修改窗体titlebar高度；&lt;/li&gt;
+&lt;li&gt;AllowsTransparency：获取或设置一个值，该值指示窗口的工作区是否支持透明；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Others" scheme="https://irisgithub.github.io/categories/others/"/>
+    
+    
+      <category term="WPF" scheme="https://irisgithub.github.io/tags/wpf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>my first blog</title>
+    <link href="https://irisgithub.github.io/2017/03/02/my-first-blog/"/>
+    <id>https://irisgithub.github.io/2017/03/02/my-first-blog/</id>
+    <published>2017-03-02T08:40:04.000Z</published>
+    <updated>2017-03-15T03:47:17.479Z</updated>
+    
+    <content type="html"><![CDATA[<p>博客由hexo+github搭建，网上教程很多，比较简单。<br>博客内容来自于印象笔记，从我的小本本上选一些搬出来，(⊙v⊙)嗯！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;博客由hexo+github搭建，网上教程很多，比较简单。&lt;br&gt;博客内容来自于印象笔记，从我的小本本上选一些搬出来，(⊙v⊙)嗯！&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="Others" scheme="https://irisgithub.github.io/categories/others/"/>
+    
+    
+  </entry>
+  
+</feed>
