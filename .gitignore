@@ -1,0 +1,2 @@
+#过滤整个node_modules文件夹
+/node_modules/

@@ -1,5 +1,5 @@
 ---
-title: 字符串操作----js笔记
+title: JS对字符串操作
 date: 2017-03-02 18:44:08
 categories: Font-end
 tags: JavaScript
