@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://irisgithub.github.io/../../../../assets/img/3-17-1.png">
 <meta property="og:image" content="https://irisgithub.github.io/../../../../assets/img/3-17-2.png">
 <meta property="og:image" content="https://irisgithub.github.io/../../../../assets/img/3-17-3.png">
-<meta property="og:updated_time" content="2017-03-20T02:47:10.823Z">
+<meta property="og:updated_time" content="2017-04-01T07:57:08.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git学习记录">
 <meta name="twitter:description" content="公司一直用的是svn（集中式版本控制系统 ），一般日常提交代码用update（从中央服务器上获取最新代码）和commit（将本地代码提交上去，提交前会用Beyond Compare软件对比修改一下）两个命令就能满足一般需求，偶尔会看一下日志，用一下版本回滚。但是最近搭博客，开始使用github，了解到git（分布式版本控制系统）好像很火？大家都在推荐，于是用了一下这个新工具。
@@ -192,16 +192,18 @@
 <p>首先，如果你想详细了解git原理和使用，狠狠点击<a href="https://git-scm.com/book/en/v2" target="_blank" rel="external">这里</a>！此外，还有很多关于git不同风格的博客啊，比如<a href="http://www.liaoxuefeng.com" target="_blank" rel="external">廖雪峰</a>写的git教程。<br>但是，如果你口味清奇有趣，可以选择<a href="http://learngitbranching.js.org/" target="_blank" rel="external">这个</a>，敲生动，适合食用！</p>
 <p>然后，列一下学习记录：</p>
 <p>先学点<strong>简单</strong>的：</p>
-<ol>
-<li>网上下载安装git，得到大礼包：<strong>Git Bash</strong>，<strong>Git GUI</strong>，<strong>Git CMD</strong>，一般操作使用<strong>Git Bash</strong>即可。</li>
-<li>本地新建文件，使用<em>git init</em>将它变成待用仓库。</li>
-</ol>
+<p>1.网上下载安装git，得到大礼包：<strong>Git Bash</strong>，<strong>Git GUI</strong>，<strong>Git CMD</strong>，一般操作使用<strong>Git Bash</strong>即可。<br>2.本地新建文件，使用<em>git init</em>将它变成待用仓库。</p>
 <a id="more"></a>
-<ol>
-<li>获取代码：</li>
-</ol>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">	git clone &lt;server url&gt; 			//将远程仓库 上的代码拉到仓库中。</div><div class="line">``` </div><div class="line"></div><div class="line"><span class="number">4</span>. 修改代码后，这样提交它：</div><div class="line"></div><div class="line">``` dos</div><div class="line">	git add &lt;filename&gt;               //提交 到缓存区（index） </div><div class="line">``` </div><div class="line"></div><div class="line">或者使用：</div><div class="line">``` dos</div><div class="line">	git add  .                  	//提交 所有改动文件到缓存区</div></pre></td></tr></table></figure>
-<p>然后再将其提交到本地仓库中：</p>
+<p>3.获取代码：</p>
+<pre><code class="dos">git clone &lt;server url&gt;             //将远程仓库 上的代码拉到仓库中。
+</code></pre>
+<p>4.修改代码后，这样提交它：</p>
+<pre><code class="dos">git add &lt;filename&gt;               //提交 到缓存区（index）
+</code></pre>
+<p>或者使用：</p>
+<pre><code class="dos">git add  .                      //提交 所有改动文件到缓存区
+</code></pre>
+<p>再将其提交到本地仓库中：</p>
 <pre><code class="dos">git commit -m "修改信息"         //提交到本地仓库中的HEAD上
 </code></pre>
 <p>期间，你可以用<em>git status</em>查看文件变化。</p>
@@ -212,24 +214,18 @@
 <p>如果你没有进行第3步，这里使用：</p>
 <pre><code class="dos">git remote add origin &lt;server url&gt;            //提交到远程仓库
 </code></pre>
-<ol>
-<li>我们经常要将远程仓库中的代码更新本地：</li>
-</ol>
+<p>5.我们经常要将远程仓库中的代码更新本地：</p>
 <pre><code class="dos">git pull
 </code></pre>
 <p>满足基本的需求后，我们了解一下git的分支功能：</p>
-<ol>
-<li>创建、查看、切换分支：</li>
-</ol>
+<p>1.创建、查看、切换分支：</p>
 <pre><code class="dos">git branch newbranch               //新建一个名newbranch的分支
 git checkout -b newbranch             //新建一个名newbranch的分支并切换到新分支
 git branch                         //查看分支
 git checkout master                 //回到主分支master
 </code></pre>
 <p>然后就可以在确定的分支下操作（比如上方的基础操作）。</p>
-<ol>
-<li>进行分支间的操作，比如：</li>
-</ol>
+<p>2.进行分支间的操作，比如：</p>
 <pre><code class="dos">git branch -d newbranch        //删除这个分支  
 git merge &lt;branchname&gt;         //合并分支到当前分支
 </code></pre>
@@ -319,6 +315,15 @@ git merge &lt;branchname&gt;         //合并分支到当前分支
   
 <nav id="article-nav">
   
+    <a href="/2017/04/01/去掉jQuery/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          去掉jQuery
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/03/16/从零到gulp/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">从零到gulp</div>
@@ -369,9 +374,13 @@ git merge &lt;branchname&gt;         //合并分支到当前分支
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
+        <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
     </div>
   </div>
 </footer>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     </div>
     <script>
 	var yiliaConfig = {
@@ -439,11 +448,11 @@ git merge &lt;branchname&gt;         //合并分支到当前分支
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WPF</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">WPF</a>
               </li>
             
             <div class="clearfix"></div>

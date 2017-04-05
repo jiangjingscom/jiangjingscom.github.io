@@ -8,7 +8,7 @@ tags: JavaScript
 
 #### 截取字符串：
 
-**1. split： 把一个字符串分割成字符串数组。**
+**1.split： 把一个字符串分割成字符串数组。**
 
 *功能* ：使用一个指定的分隔符把字符串分隔存储到数组
 *语法* ：<font color=red>str.split(separator,size)</font>
@@ -23,7 +23,7 @@ var str=”jpg|bmp|gif|ico|png”; arr=str.split(”|”);//arr是一个包含�
 ```
 <!--more-->
 
-**2. slice：   提取字符串的某个部分。**
+**2.slice：   提取字符串的某个部分。**
 
 *功能*：返回一个新的数组，包含从start到end（不包括该元素）的arrayobject中的元素。
 *语法*：<font color=red>str.slice(startPos,endPos)</font>
@@ -38,7 +38,7 @@ alert(str.slice(2,5))   //结果ji3
 ```
 
 
-**3. substring：  返回指定位置的子字符串。**
+**3.substring：  返回指定位置的子字符串。**
 
 *功能*：用于提取字符串中介于两个指定下标之间的字符。
 *语法*：<font color=red>str.substring(startPos,endPos)</font>
@@ -56,7 +56,7 @@ alert(str.substring(2,6))   //结果为ji3o3
 ```
 
 
-**4. substr:    返回字符串中指定位置开始的指定长度的子字符串。**
+**4.substr:    返回字符串中指定位置开始的指定长度的子字符串。**
 
 *语法*：<font color=red>str.substr(startPos,length)</font>
 *参数*：
@@ -78,7 +78,7 @@ alert(str.substring(-1,5));	//"01234"
 
 #### 合并字符串
 
-**1. join**
+**1.join**
 
 *功能*：使用您选择的分隔符将一个数组合并为一个字符串。
 
@@ -89,7 +89,7 @@ var myList=new Array(”jpg”,”bmp”,”gif”,”ico”,”png”);
 var portableList=myList.join(”|”);//结果是jpg|bmp|gif|ico|png
 ```
  
-**2. concat**
+**2.concat**
 
 *功能*：将两个数组连接在一起。
 
@@ -102,7 +102,7 @@ alert(arr1.concat(arr2))  //结果为[1,2,3,4,5,6,7,8]
 
 #### 其他：
 
-**1. charAt**
+**1.charAt**
 
  *功能*：返回指定位置的<font color=red>字符</font>。字符串中第一个字符的下标是 0。如果参数 index 不在 0 与 string.length 之间，该方法将返回一个空字符串。
 
@@ -112,7 +112,7 @@ var str='a,g,i,d,o,v,w,d,k,p'
 alert(str.charAt(2))  //结果为g
 ```
 
-**2. charCodeAt**
+**2.charCodeAt**
 
 *功能*：charCodeAt() 方法可返回指定位置的字符的<font color=red>Unicode 编码</font>。这个返回值是 0 - 65535 之间的整数。
 方法 charCodeAt() 与 charAt() 方法执行的操作相似，只不过前者返回的是位于指定位置的字符的编码，而后者返回的是字符子串。
@@ -123,7 +123,7 @@ var str='a,g,i,d,o,v,w,d,k,p'
 alert(str.charCodeAt(2))  //结果为103。即g的Unicode编码为103
 ```
 
-**3. replace:   用于在字符串中用一些字符替换另一些字符。**
+**3.replace:   用于在字符串中用一些字符替换另一些字符。**
 
 *语法*：<font color=red>str.replace(string,replacement)</font>
 *参数*：

@@ -1,5 +1,5 @@
 ---
-title: wpf笔记
+title: WPF笔记
 date: 2017-03-02 18:41:51
 categories: Others
 tags: WPF 
@@ -7,7 +7,7 @@ tags: WPF
 
 ###  改写窗体：
 
-**1. WPF中使用默认窗口框架的外观，可以更改属性：([参考](http://www.cnblogs.com/libaoheng/archive/2011/11/18/2253751.html))**
+**1.WPF中使用默认窗口框架的外观，可以更改属性：([参考](http://www.cnblogs.com/libaoheng/archive/2011/11/18/2253751.html))**
 *Icon*: 指定窗口的图标；
 *Title*: 指定窗口的标题；
 *WindowStyle*: 指定窗口样式，有4个取值：
@@ -32,7 +32,7 @@ tags: WPF
 <!--more-->
 
  
-**2. 设置窗体无边框：**
+**2.设置窗体无边框：**
      设置 WindowStyle="None"、  AllowsTransparency="True" 即可。
      *如下*：
 ``` xml
@@ -71,7 +71,7 @@ private void Window_MouseDown(object sender, MouseButtonEventArgs e){
 }
 ```
      
-**4. 自定义窗体最大化、最小化、关闭  **
+**4.自定义窗体最大化、最小化、关闭**
 如下： 
 ``` cs
 private void btn_min_Click(object sender, RoutedEventArgs e){
@@ -89,7 +89,7 @@ private void btn_close_Click(object sender, RoutedEventArgs e){
 }
 ```
 	
-**5. 窗口阴影：**(WPF4.5)
+**5.窗口阴影：**(WPF4.5)
 ``` xml
 <Window x:Class="WPFTest.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

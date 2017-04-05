@@ -1,3 +1,4 @@
+---
 layout: title
 title: git学习记录
 date: 2017-03-17 17:09:02
@@ -13,27 +14,28 @@ categories: Font-end
 
 先学点**简单**的：
 
-1. 网上下载安装git，得到大礼包：**Git Bash**，**Git GUI**，**Git CMD**，一般操作使用**Git Bash**即可。
-2. 本地新建文件，使用*git init*将它变成待用仓库。
+1.网上下载安装git，得到大礼包：**Git Bash**，**Git GUI**，**Git CMD**，一般操作使用**Git Bash**即可。
+2.本地新建文件，使用*git init*将它变成待用仓库。
 
 <!--more-->
 
-3. 获取代码：
+3.获取代码：
 
 ``` dos
 	git clone <server url> 			//将远程仓库 上的代码拉到仓库中。
 ``` 
 
-4. 修改代码后，这样提交它：
+4.修改代码后，这样提交它：
 
 ``` dos
 	git add <filename>               //提交 到缓存区（index） 
 ``` 
 
 或者使用：
+
 ``` dos
 	git add  .                  	//提交 所有改动文件到缓存区
-```
+``` 
 
 再将其提交到本地仓库中：
 
@@ -58,7 +60,7 @@ categories: Font-end
 	git remote add origin <server url>			//提交到远程仓库
 ``` 
 
-5. 我们经常要将远程仓库中的代码更新本地：
+5.我们经常要将远程仓库中的代码更新本地：
 
 ``` dos
 	git pull
@@ -66,7 +68,7 @@ categories: Font-end
 
 满足基本的需求后，我们了解一下git的分支功能：
 
-1. 创建、查看、切换分支：
+1.创建、查看、切换分支：
 
 ``` dos
 	git branch newbranch               //新建一个名newbranch的分支
@@ -77,7 +79,7 @@ categories: Font-end
    
 然后就可以在确定的分支下操作（比如上方的基础操作）。
 
-2. 进行分支间的操作，比如：
+2.进行分支间的操作，比如：
 
 ``` dos
 	 git branch -d newbranch        //删除这个分支  

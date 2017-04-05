@@ -162,6 +162,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-去掉jQuery" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/01/去掉jQuery/">去掉jQuery</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/01/去掉jQuery/" class="archive-article-date">
+  	<time datetime="2017-04-01T07:59:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。<br>1、Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$,具体使用见官方<a href="https://code.angularjs.org/1.5.4/docs/api/ng/function/angular.element">文档</a>。<br>因此我们所使用的jQuery选择器，例如：</p>
+<pre><code class="javascript">$(<span class="string">"#empl-name"</span>).val();
+</code></pre>
+<p>可以换成：</p>
+<pre><code class="javascript">angular.element(<span class="built_in">document</span>.querySelector(<span class="string">"#empl-name"</span>));
+</code></pre>
+<p>使用document.querySelector 的原因官方文档中有说明:</p>
+<p><img src="../../../../assets/img/4-1-1.png"   align=center /></p>
+        
+          <a class="article-more-a" href="/2017/04/01/去掉jQuery/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Font-end/" class="article-tag-list-link color4">Font-end</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/01/去掉jQuery/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="title-git学习记录" class="article article-type-title  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -186,10 +268,7 @@
 <p>首先，如果你想详细了解git原理和使用，狠狠点击<a href="https://git-scm.com/book/en/v2">这里</a>！此外，还有很多关于git不同风格的博客啊，比如<a href="http://www.liaoxuefeng.com">廖雪峰</a>写的git教程。<br>但是，如果你口味清奇有趣，可以选择<a href="http://learngitbranching.js.org/">这个</a>，敲生动，适合食用！</p>
 <p>然后，列一下学习记录：</p>
 <p>先学点<strong>简单</strong>的：</p>
-<ol>
-<li>网上下载安装git，得到大礼包：<strong>Git Bash</strong>，<strong>Git GUI</strong>，<strong>Git CMD</strong>，一般操作使用<strong>Git Bash</strong>即可。</li>
-<li>本地新建文件，使用<em>git init</em>将它变成待用仓库。</li>
-</ol>
+<p>1.网上下载安装git，得到大礼包：<strong>Git Bash</strong>，<strong>Git GUI</strong>，<strong>Git CMD</strong>，一般操作使用<strong>Git Bash</strong>即可。<br>2.本地新建文件，使用<em>git init</em>将它变成待用仓库。</p>
         
           <a class="article-more-a" href="/2017/03/17/git学习记录/#more">more >></a>
         
@@ -317,7 +396,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="截取字符串："><a href="#截取字符串：" class="headerlink" title="截取字符串："></a>截取字符串：</h4><p><strong>1. split： 把一个字符串分割成字符串数组。</strong></p>
+        <h4 id="截取字符串："><a href="#截取字符串：" class="headerlink" title="截取字符串："></a>截取字符串：</h4><p><strong>1.split： 把一个字符串分割成字符串数组。</strong></p>
 <p><em>功能</em> ：使用一个指定的分隔符把字符串分隔存储到数组<br><em>语法</em> ：<font color=red>str.split(separator,size)</font><br><em>参数</em> ：</p>
 <ul>
 <li>str：必选项。要截取的字符串。</li>
@@ -379,19 +458,19 @@
 
 
   
-    <article id="post-wpf笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-WPF笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/02/wpf笔记/">wpf笔记</a>
+      <a class="article-title" href="/2017/03/02/WPF笔记/">WPF笔记</a>
     </h1>
   
 
         
-        <a href="/2017/03/02/wpf笔记/" class="archive-article-date">
+        <a href="/2017/03/02/WPF笔记/" class="archive-article-date">
   	<time datetime="2017-03-02T10:41:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
 </a>
         
@@ -399,7 +478,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="改写窗体："><a href="#改写窗体：" class="headerlink" title="改写窗体："></a>改写窗体：</h3><p><strong>1. WPF中使用默认窗口框架的外观，可以更改属性：(<a href="http://www.cnblogs.com/libaoheng/archive/2011/11/18/2253751.html">参考</a>)</strong><br><em>Icon</em>: 指定窗口的图标；<br><em>Title</em>: 指定窗口的标题；<br><em>WindowStyle</em>: 指定窗口样式，有4个取值：</p>
+        <h3 id="改写窗体："><a href="#改写窗体：" class="headerlink" title="改写窗体："></a>改写窗体：</h3><p><strong>1.WPF中使用默认窗口框架的外观，可以更改属性：(<a href="http://www.cnblogs.com/libaoheng/archive/2011/11/18/2253751.html">参考</a>)</strong><br><em>Icon</em>: 指定窗口的图标；<br><em>Title</em>: 指定窗口的标题；<br><em>WindowStyle</em>: 指定窗口样式，有4个取值：</p>
 <ul>
 <li>None，无边框；（当ResizeMode属性为NoResize时，仅剩下窗口核心。）</li>
 <li>SingleBorderWindow，单边框【默认】；</li>
@@ -424,7 +503,7 @@
 </li>
 </ul>
         
-          <a class="article-more-a" href="/2017/03/02/wpf笔记/#more">more >></a>
+          <a class="article-more-a" href="/2017/03/02/WPF笔记/#more">more >></a>
         
       
 
@@ -459,7 +538,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/02/wpf笔记/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/03/02/WPF笔记/">展开全文 >></a>
         </p>
       
 
@@ -496,9 +575,13 @@
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
+        <span id="busuanzi_container_site_pv">
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        </span>
     </div>
   </div>
 </footer>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     </div>
     <script>
 	var yiliaConfig = {
@@ -566,11 +649,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WPF</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">WPF</a>
               </li>
             
             <div class="clearfix"></div>
