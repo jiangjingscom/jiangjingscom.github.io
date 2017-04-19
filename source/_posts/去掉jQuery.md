@@ -5,7 +5,7 @@ categories: Font-end
 tags: JavaScript
 ---
 一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现......虽然jQuery压缩过才100kb左右。
-1、Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$,具体使用见官方[文档](https://code.angularjs.org/1.5.4/docs/api/ng/function/angular.element)。
+1.Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$,具体使用见官方[文档](https://code.angularjs.org/1.5.4/docs/api/ng/function/angular.element)。
 因此我们所使用的jQuery选择器，例如：
 ``` javascript
 $("#empl-name").val();
@@ -72,7 +72,7 @@ angular.module('ui.bootstrap.tooltip').run(......);
 发现github上的一个封装angular tooltip的[项目](https://github.com/720kb/angular-tooltips),使用方便有demo,⊙o⊙......
 
 3.jQuery的动画部分。
-一些动画可以直接使用css的transition属性进行设置，还可以使用angular提供的动画。
+一些动画可以直接使用css的animation、transition属性进行设置，还可以使用angular提供的动画。
 例如jQuery一个简单的改变位置动画，需要在动画完成后移除这个指令组件：
 
 ``` javascript
@@ -82,7 +82,7 @@ $(".side-modal").animate({right:'-100%'},300,function(){
 	});
 });
 ``` 
-使用angular的动画，要引入angular-animate.js文件，注入$animate：
+使用angular的动画，要引入angular-animate.js文件，注入ngAnimate：
 
 ``` javascript
 "use strict";
@@ -110,7 +110,9 @@ angular.module(moduleName,["ngAnimate"])
 }]);
 module.exports=moduleName;
 ``` 
-4.其他部分可以查找jQuery api替换，可以看[这里]( https://github.com/oneuijs/You-Dont-Need-jQuery)。
+4.其他部分可以参考github上的一个项目：[You Don't Need jQuery]( https://github.com/oneuijs/You-Dont-Need-jQuery)。
 
 
-April Fool's Day ....⊙o⊙....
+************
+
+<font color=red>April Fool's Day </font>....⊙o⊙....

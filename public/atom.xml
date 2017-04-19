@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://irisgithub.github.io/"/>
-  <updated>2017-04-05T02:15:19.824Z</updated>
+  <updated>2017-04-06T11:11:47.853Z</updated>
   <id>https://irisgithub.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="https://irisgithub.github.io/2017/04/01/%E5%8E%BB%E6%8E%89jQuery/"/>
     <id>https://irisgithub.github.io/2017/04/01/去掉jQuery/</id>
     <published>2017-04-01T07:59:49.000Z</published>
-    <updated>2017-04-05T02:15:19.824Z</updated>
+    <updated>2017-04-06T11:11:47.853Z</updated>
     
-    <content type="html"><![CDATA[<p>一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。<br>1、Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$,具体使用见官方<a href="https://code.angularjs.org/1.5.4/docs/api/ng/function/angular.element" target="_blank" rel="external">文档</a>。<br>因此我们所使用的jQuery选择器，例如：</p>
+    <content type="html"><![CDATA[<p>一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。<br>1.Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$,具体使用见官方<a href="https://code.angularjs.org/1.5.4/docs/api/ng/function/angular.element" target="_blank" rel="external">文档</a>。<br>因此我们所使用的jQuery选择器，例如：</p>
 <pre><code class="javascript">$(<span class="string">"#empl-name"</span>).val();
 </code></pre>
 <p>可以换成：</p>
@@ -76,14 +76,14 @@ angular.module(<span class="string">"uib/template/tooltip/tooltip-popup.html"</s
 angular.module(<span class="string">'ui.bootstrap.tooltip'</span>).run(......);
 </code></pre>
 <p>发现github上的一个封装angular tooltip的<a href="https://github.com/720kb/angular-tooltips" target="_blank" rel="external">项目</a>,使用方便有demo,⊙o⊙……</p>
-<p>3.jQuery的动画部分。<br>一些动画可以直接使用css的transition属性进行设置，还可以使用angular提供的动画。<br>例如jQuery一个简单的改变位置动画，需要在动画完成后移除这个指令组件：</p>
+<p>3.jQuery的动画部分。<br>一些动画可以直接使用css的animation、transition属性进行设置，还可以使用angular提供的动画。<br>例如jQuery一个简单的改变位置动画，需要在动画完成后移除这个指令组件：</p>
 <pre><code class="javascript">$(<span class="string">".side-modal"</span>).animate({<span class="attr">right</span>:<span class="string">'-100%'</span>},<span class="number">300</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
     $scope.$apply(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
         $scope.onRemove();
     });
 });
 </code></pre>
-<p>使用angular的动画，要引入angular-animate.js文件，注入$animate：</p>
+<p>使用angular的动画，要引入angular-animate.js文件，注入ngAnimate：</p>
 <pre><code class="javascript"><span class="meta">"use strict"</span>;
 <span class="built_in">require</span>(<span class="string">"./angular-animte-min"</span>);
 <span class="keyword">var</span> moduleName = <span class="string">"animateTest"</span>;
@@ -109,13 +109,14 @@ angular.module(moduleName,[<span class="string">"ngAnimate"</span>])
 }]);
 <span class="built_in">module</span>.exports=moduleName;
 </code></pre>
-<p>4.其他部分可以查找jQuery api替换，可以看<a href="https://github.com/oneuijs/You-Dont-Need-jQuery" target="_blank" rel="external">这里</a>。</p>
-<p>April Fool’s Day ….⊙o⊙….</p>
+<p>4.其他部分可以参考github上的一个项目：<a href="https://github.com/oneuijs/You-Dont-Need-jQuery" target="_blank" rel="external">You Don’t Need jQuery</a>。</p>
+<hr>
+<p><font color="red">April Fool’s Day </font>….⊙o⊙….</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。&lt;br&gt;1、Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$,具体使用见官方&lt;a href=&quot;https://code.angularjs.org/1.5.4/docs/api/ng/function/angular.element&quot;&gt;文档&lt;/a&gt;。&lt;br&gt;因此我们所使用的jQuery选择器，例如：&lt;/p&gt;
+      &lt;p&gt;一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。&lt;br&gt;1.Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$,具体使用见官方&lt;a href=&quot;https://code.angularjs.org/1.5.4/docs/api/ng/function/angular.element&quot;&gt;文档&lt;/a&gt;。&lt;br&gt;因此我们所使用的jQuery选择器，例如：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;$(&lt;span class=&quot;string&quot;&gt;&quot;#empl-name&quot;&lt;/span&gt;).val();
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;可以换成：&lt;/p&gt;
@@ -400,14 +401,14 @@ git merge &lt;branchname&gt;         //合并分支到当前分支
     <link href="https://irisgithub.github.io/2017/03/02/my-first-blog/"/>
     <id>https://irisgithub.github.io/2017/03/02/my-first-blog/</id>
     <published>2017-03-02T08:40:04.000Z</published>
-    <updated>2017-03-15T03:47:17.479Z</updated>
+    <updated>2017-04-05T08:51:39.763Z</updated>
     
-    <content type="html"><![CDATA[<p>博客由hexo+github搭建，网上教程很多，比较简单。<br>博客内容来自于印象笔记，从我的小本本上选一些搬出来，(⊙v⊙)嗯！</p>
+    <content type="html"><![CDATA[<p>博客由hexo+github搭建，遵循markdown语法来编辑博客，网上教程很多，比较简单。<br>博客内容来自于印象笔记，从我的小本本上选一些搬出来，(⊙v⊙)嗯！</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;博客由hexo+github搭建，网上教程很多，比较简单。&lt;br&gt;博客内容来自于印象笔记，从我的小本本上选一些搬出来，(⊙v⊙)嗯！&lt;/p&gt;
+      &lt;p&gt;博客由hexo+github搭建，遵循markdown语法来编辑博客，网上教程很多，比较简单。&lt;br&gt;博客内容来自于印象笔记，从我的小本本上选一些搬出来，(⊙v⊙)嗯！&lt;/p&gt;
 
     
     </summary>

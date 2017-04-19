@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://irisgithub.github.io">
   <title>去掉jQuery | Iris&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。1、Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$">
+  <meta name="description" content="一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。1.Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="去掉jQuery">
 <meta property="og:url" content="https://irisgithub.github.io/2017/04/01/去掉jQuery/index.html">
 <meta property="og:site_name" content="Iris' Blog">
-<meta property="og:description" content="一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。1、Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$">
+<meta property="og:description" content="一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。1.Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$">
 <meta property="og:image" content="https://irisgithub.github.io/../../../../assets/img/4-1-1.png">
-<meta property="og:updated_time" content="2017-04-05T02:15:19.824Z">
+<meta property="og:updated_time" content="2017-04-06T11:11:47.853Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="去掉jQuery">
-<meta name="twitter:description" content="一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。1、Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$">
+<meta name="twitter:description" content="一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。1.Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$">
 <meta name="twitter:image" content="https://irisgithub.github.io/../../../../assets/img/4-1-1.png">
   
     <link rel="alternative" href="/atom.xml" title="Iris&#39; Blog" type="application/atom+xml">
@@ -183,7 +183,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。<br>1、Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$,具体使用见官方<a href="https://code.angularjs.org/1.5.4/docs/api/ng/function/angular.element" target="_blank" rel="external">文档</a>。<br>因此我们所使用的jQuery选择器，例如：</p>
+        <p>一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。<br>1.Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$,具体使用见官方<a href="https://code.angularjs.org/1.5.4/docs/api/ng/function/angular.element" target="_blank" rel="external">文档</a>。<br>因此我们所使用的jQuery选择器，例如：</p>
 <pre><code class="javascript">$(<span class="string">"#empl-name"</span>).val();
 </code></pre>
 <p>可以换成：</p>
@@ -237,14 +237,14 @@ angular.module(<span class="string">"uib/template/tooltip/tooltip-popup.html"</s
 angular.module(<span class="string">'ui.bootstrap.tooltip'</span>).run(......);
 </code></pre>
 <p>发现github上的一个封装angular tooltip的<a href="https://github.com/720kb/angular-tooltips" target="_blank" rel="external">项目</a>,使用方便有demo,⊙o⊙……</p>
-<p>3.jQuery的动画部分。<br>一些动画可以直接使用css的transition属性进行设置，还可以使用angular提供的动画。<br>例如jQuery一个简单的改变位置动画，需要在动画完成后移除这个指令组件：</p>
+<p>3.jQuery的动画部分。<br>一些动画可以直接使用css的animation、transition属性进行设置，还可以使用angular提供的动画。<br>例如jQuery一个简单的改变位置动画，需要在动画完成后移除这个指令组件：</p>
 <pre><code class="javascript">$(<span class="string">".side-modal"</span>).animate({<span class="attr">right</span>:<span class="string">'-100%'</span>},<span class="number">300</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
     $scope.$apply(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
         $scope.onRemove();
     });
 });
 </code></pre>
-<p>使用angular的动画，要引入angular-animate.js文件，注入$animate：</p>
+<p>使用angular的动画，要引入angular-animate.js文件，注入ngAnimate：</p>
 <pre><code class="javascript"><span class="meta">"use strict"</span>;
 <span class="built_in">require</span>(<span class="string">"./angular-animte-min"</span>);
 <span class="keyword">var</span> moduleName = <span class="string">"animateTest"</span>;
@@ -270,8 +270,9 @@ angular.module(moduleName,[<span class="string">"ngAnimate"</span>])
 }]);
 <span class="built_in">module</span>.exports=moduleName;
 </code></pre>
-<p>4.其他部分可以查找jQuery api替换，可以看<a href="https://github.com/oneuijs/You-Dont-Need-jQuery" target="_blank" rel="external">这里</a>。</p>
-<p>April Fool’s Day ….⊙o⊙….</p>
+<p>4.其他部分可以参考github上的一个项目：<a href="https://github.com/oneuijs/You-Dont-Need-jQuery" target="_blank" rel="external">You Don’t Need jQuery</a>。</p>
+<hr>
+<p><font color="red">April Fool’s Day </font>….⊙o⊙….</p>
 
       
 
@@ -490,11 +491,11 @@ angular.module(moduleName,[<span class="string">"ngAnimate"</span>])
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">WPF</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WPF</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
             
             <div class="clearfix"></div>
