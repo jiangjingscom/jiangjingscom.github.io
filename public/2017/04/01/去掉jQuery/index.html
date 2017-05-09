@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Iris' Blog">
 <meta property="og:description" content="一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。1.Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$">
 <meta property="og:image" content="https://irisgithub.github.io/../../../../assets/img/4-1-1.png">
-<meta property="og:updated_time" content="2017-04-06T11:11:47.853Z">
+<meta property="og:updated_time" content="2017-04-19T03:04:39.351Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="去掉jQuery">
 <meta name="twitter:description" content="一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。1.Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$">
@@ -192,7 +192,7 @@
 <p>使用document.querySelector 的原因官方文档中有说明:</p>
 <p><img src="../../../../assets/img/4-1-1.png" align="center"></p>
 <a id="more"></a>
-<p>2.替换掉使用jQuery的插件。<br>例如，使用的jQuery的tooltip组件插件，现在换成ui bootstrap中的tooltip组件。<br>原来引入jQuery tooltip插件代码后，封装成指令：</p>
+<p>2.替换掉依赖jQuery的插件。<br>例如，使用的jQuery的tooltip组件插件，现在换成ui bootstrap中的tooltip组件。<br>原来引入jQuery tooltip插件代码后，封装成指令：</p>
 <pre><code class="javascript"><span class="meta">"use strict"</span>;
 <span class="keyword">var</span> moduleName=<span class="string">"kass.widget.tooltip"</span>;
 angular.module(moduleName,[])
@@ -366,6 +366,15 @@ angular.module(moduleName,[<span class="string">"ngAnimate"</span>])
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/04/17/一次http请求/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          一次http请求
+        
+      </div>
+    </a>
   
   
     <a href="/2017/03/17/git学习记录/" id="article-nav-older" class="article-nav-link-wrap">

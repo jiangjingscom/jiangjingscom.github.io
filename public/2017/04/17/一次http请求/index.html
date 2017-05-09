@@ -6,17 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://irisgithub.github.io">
-  <title>Iris&#39; Blog</title>
+  <title>一次http请求 | Iris&#39; Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端 JS WPF">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Iris' Blog">
-<meta property="og:url" content="https://irisgithub.github.io/page/2/index.html">
+  <meta name="description" content="好久没有写博客了，记录几天前的一个bug，顺便回顾一些之前学的HTTP知识。客户之前要求浏览器支持360和chrome，对版本没有什么要求。想到360极速模式使用的webkit内核，平常代码运行在又chrome上，我感觉可以任性了！但是最近客户改需求需要运行在IE10及以上，小伙伴们开始在IE10上测试。其中一处bug：某次HTTP 请求在chrome上返回200，但在IE10上返回401。在ch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一次http请求">
+<meta property="og:url" content="https://irisgithub.github.io/2017/04/17/一次http请求/index.html">
 <meta property="og:site_name" content="Iris' Blog">
-<meta property="og:description" content="前端 JS WPF">
+<meta property="og:description" content="好久没有写博客了，记录几天前的一个bug，顺便回顾一些之前学的HTTP知识。客户之前要求浏览器支持360和chrome，对版本没有什么要求。想到360极速模式使用的webkit内核，平常代码运行在又chrome上，我感觉可以任性了！但是最近客户改需求需要运行在IE10及以上，小伙伴们开始在IE10上测试。其中一处bug：某次HTTP 请求在chrome上返回200，但在IE10上返回401。在ch">
+<meta property="og:image" content="https://irisgithub.github.io/../../../../assets/img/4-17-1.png">
+<meta property="og:image" content="https://irisgithub.github.io/../../../../assets/img/4-17-2.png">
+<meta property="og:image" content="https://irisgithub.github.io/../../../../assets/img/4-17-3.png">
+<meta property="og:image" content="https://irisgithub.github.io/../../../../assets/img/4-17-4.png">
+<meta property="og:image" content="https://irisgithub.github.io/../../../../assets/img/4-17-5.png">
+<meta property="og:updated_time" content="2017-05-05T03:19:23.085Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Iris' Blog">
-<meta name="twitter:description" content="前端 JS WPF">
+<meta name="twitter:title" content="一次http请求">
+<meta name="twitter:description" content="好久没有写博客了，记录几天前的一个bug，顺便回顾一些之前学的HTTP知识。客户之前要求浏览器支持360和chrome，对版本没有什么要求。想到360极速模式使用的webkit内核，平常代码运行在又chrome上，我感觉可以任性了！但是最近客户改需求需要运行在IE10及以上，小伙伴们开始在IE10上测试。其中一处bug：某次HTTP 请求在chrome上返回200，但在IE10上返回401。在ch">
+<meta name="twitter:image" content="https://irisgithub.github.io/../../../../assets/img/4-17-1.png">
   
     <link rel="alternative" href="/atom.xml" title="Iris&#39; Blog" type="application/atom+xml">
   
@@ -160,127 +167,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-WPF笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-一次http请求" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/02/WPF笔记/">WPF笔记</a>
+    <h1 class="article-title" itemprop="name">
+      一次http请求
     </h1>
   
 
         
-        <a href="/2017/03/02/WPF笔记/" class="archive-article-date">
-  	<time datetime="2017-03-02T10:41:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
+        <a href="/2017/04/17/一次http请求/" class="archive-article-date">
+  	<time datetime="2017-04-17T10:13:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="改写窗体："><a href="#改写窗体：" class="headerlink" title="改写窗体："></a>改写窗体：</h3><p><strong>1.WPF中使用默认窗口框架的外观，可以更改属性：(<a href="http://www.cnblogs.com/libaoheng/archive/2011/11/18/2253751.html">参考</a>)</strong><br><em>Icon</em>: 指定窗口的图标；<br><em>Title</em>: 指定窗口的标题；<br><em>WindowStyle</em>: 指定窗口样式，有4个取值：</p>
-<ul>
-<li>None，无边框；（当ResizeMode属性为NoResize时，仅剩下窗口核心。）</li>
-<li>SingleBorderWindow，单边框【默认】；</li>
-<li>ThreeDBorderWindow，3D边框；</li>
-<li>ToolBorderWindow，工具箱窗口；</li>
-<li>ResizeMode 是指定大小调节样式，有4个取值：</li>
-<li>NoResize，不可调节，同时没有最大最小按钮；</li>
-<li>CanMinimize，不可调节。但可以最小化；（此时最大化按钮不可用）</li>
-<li>CanResize，可调节【默认】；</li>
-<li>CanResizeWithGrid，可根据网格调节；（窗口右下脚显示可调节网格）</li>
-<li>WindowStartLocation 指定窗口初始位置，有3个取值：</li>
-<li>Manual，手工指定位置，表示可以通过设置其Top、Left属性值来决定窗口的初始位置；</li>
-<li>CenterScreen，屏幕中央；</li>
-<li>CenterOwner，父窗体中央；<blockquote>
-<p>另外：</p>
-<ul>
-<li>MaxWidth、MinWidth、MaxHeight、MinHeight ：表示窗口最大宽度、最小宽度、最大高度、最小高度。可以通过得到和更改这些属性值，来获取和改变窗口的大小和长宽范围。</li>
-<li>TitlebarHeight=”45”          //修改窗体titlebar高度；</li>
-<li>AllowsTransparency：获取或设置一个值，该值指示窗口的工作区是否支持透明；</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/03/02/WPF笔记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WPF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Others/" class="article-tag-list-link color2">Others</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/02/WPF笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-my-first-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/02/my-first-blog/">my first blog</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/02/my-first-blog/" class="archive-article-date">
-  	<time datetime="2017-03-02T08:40:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>博客由hexo+github搭建，遵循markdown语法来编辑博客，网上教程很多，比较简单。<br>博客内容来自于印象笔记，从我的小本本上选一些搬出来，(⊙v⊙)嗯！</p>
+        <p>好久没有写博客了，记录几天前的一个bug，顺便回顾一些之前学的HTTP知识。<br>客户之前要求浏览器支持360和chrome，对版本没有什么要求。想到360极速模式使用的webkit内核，平常代码运行在又chrome上，我感觉可以任性了！但是最近客户改需求需要运行在IE10及以上，小伙伴们开始在IE10上测试。其中一处bug：某次HTTP 请求在chrome上返回200，但在IE10上返回401。<br>在chrome中运行，HTTP 请求详细信息截图如下：</p>
+<p><img src="../../../../assets/img/4-17-1.png" align="center"></p>
+<a id="more"></a>
+<p>在IE10下HTTP请求响应码返回401，表示身份信息有问题，请求失败：</p>
+<p><img src="../../../../assets/img/4-17-2.png" align="center"></p>
+<p>查看request header：</p>
+<p><img src="../../../../assets/img/4-17-3.png" align="center"></p>
+<p>发现设置在headers中的的authorization字段不见了，在chrome上存在authorization 字段,那么IE10上应该存在，为什么找不到？看到桌面绿色的fiddler，想到它可以抓到很多HTTP 信息，可能会得到其他有用的信息。<br>运行fiddler ，找到目标session：</p>
+<p><img src="../../../../assets/img/4-17-4.png" align="center"></p>
+<p>得到IE10下详细的返回信息：</p>
+<p><img src="../../../../assets/img/4-17-5.png" align="center"></p>
+<p>所以，authorization还是有的，只是IE10没有显示出来，而且变成了Authorization，首字母大写；应该是后端验证出现问题，将bug报给后端被解决。</p>
+<h4 id="HTTP基础知识-HTTP-basics"><a href="#HTTP基础知识-HTTP-basics" class="headerlink" title="HTTP基础知识(HTTP basics)"></a>HTTP基础知识(<a href="https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html" target="_blank" rel="external">HTTP basics</a>)</h4><p>一次完整的请求过程：<br>1.域名解析<br>2.建立TCP连接，三次握手<br>3.Web浏览器向Web服务端发送HTTP请求报文<br>4.浏览器解析HTML代码，并请求HTML代码中的资源<br>6.浏览器对页面进行渲染呈献给用户<br>7.断开TCP连接</p>
+<h4 id="HTTP的请求方法-HTTP-1-1-Method-Definitions"><a href="#HTTP的请求方法-HTTP-1-1-Method-Definitions" class="headerlink" title="HTTP的请求方法(HTTP/1.1: Method Definitions)"></a>HTTP的请求方法(<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html" target="_blank" rel="external">HTTP/1.1: Method Definitions</a>)</h4><p>一些get请求方式：1. 直接输入某个地址 2. 点击链接 3. 表单默认提交方式</p>
+<h4 id="关于HTTP-响应码-HTTP-Status-Code"><a href="#关于HTTP-响应码-HTTP-Status-Code" class="headerlink" title="关于HTTP 响应码(HTTP Status Code )"></a>关于HTTP 响应码(<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" target="_blank" rel="external">HTTP Status Code</a> )</h4><p>1xx：#临时响应# 代表请求已经被接受，但需要继续处理。<br>　　100 Continue — 服务器仅接收到部分请求，但是一旦服务器并没有拒绝该请求，客户端应该继续发送其余的请求。<br>　　101 Switching Protocols — 服务器转换协议：服务器将遵从客户的请求转换到另外一种协议。<br>　　102 Processing — 由WebDAV(RFC 2518)扩展的状态码，代表处理将被继续执行。<br>2xx：#成功# 代表请求已经被服务器接收、理解、并接受<br>　　200 OK：请求成功(其后是对GET和POST请求的应答文档。)<br>　　201 Created — 请求被创建完成，同时新的资源被创建。<br>　　202 Accepted — 供处理的请求已被接受，但是处理未完成。<br>　　203 Non-authoritative Information — 文档已经正常地返回，但一些应答头可能不正确，因为使用的是文档的拷贝。<br>　　204 No Content — 没有新文档。浏览器应该继续显示原来的文档。如果用户定期地刷新页面，而Servlet可以确定用户文档足够新，这个状态代码是很有用的。<br>　　205 Reset Content — 没有新文档。但浏览器应该重置它所显示的内容。用来强制浏览器清除表单输入内容。<br>　　206 Partial Content — 客户发送了一个带有Range头的GET请求，服务器完成了它。<br>　　207 Multi-Status — 由WebDAV(RFC 2518)扩展的状态码，代表之后的消息体将是一个XML消息，并且可能依照之前子请求数量的不同，包含一系列独立的响应代码。<br>3xx: #重定向# 代表客户端需要采取进一步的操作才能完成请求<br>　　300 Multiple Choices — 多重选择。链接列表。用户可以选择某链接到达目的地。最多允许五个地址。<br>　　301 Moved Permanently — 所请求的页面已经转移至新的url。<br>　　302 Found — 所请求的页面已经临时转移至新的url。<br>　　303 See Other — 所请求的页面可在别的url下被找到。<br>　　304 Not Modified — 未按预期修改文档。客户端有缓冲的文档并发出了一个条件性的请求(一般是提供If-Modified-Since头表示客户只想比指定日期更新的文档)。服务器告诉客户，原来缓冲的文档还可以继续使用。<br>　　305 Use Proxy — 客户请求的文档应该通过Location头所指明的代理服务器提取。<br>　　306 Unused — 此代码被用于前一版本。目前已不再使用，但是代码依然被保留。<br>　　307 Temporary Redirect — 被请求的页面已经临时移至新的url。<br>4xx：#客户端错误# 代表客户端可能发生了错误，阻碍了服务器的处理，<br>　　400 Bad Request — 服务器未能理解请求或是请求参数有误。<br>　　401 Unauthorized — 被请求的页面需要用户名和密码。<br>　　402 Payment Required — 此代码尚无法使用(为了将来可能的需求而预留的。)<br>　　403 Forbidden — 对被请求页面的访问被禁止。<br>　　404 Not Found — 服务器无法找到被请求的页面。<br>　　405 Method Not Allowed — 请求中指定的方法不被允许。<br>　　406 Not Acceptable — 服务器生成的响应无法被客户端所接受。<br>　　407 Proxy Authentication Required — 用户必须首先使用代理服务器进行验证，这样请求才会被处理。<br>　　408 Request Timeout — 请求超出了服务器的等待时间。<br>　　409 Conflict — 由于冲突，请求无法被完成。<br>　　410 Gone — 被请求的页面不可用。<br>　　411 Length Required”Content-Length — “ 未被定义。如果无此内容，服务器不会接受请求。<br>　　412 Precondition Failed — 请求中的前提条件被服务器评估为失败。<br>　　413 Request Entity Too Large — 由于所请求的实体的太大，服务器不会接受请求。<br>　　414 Request-url Too Long — 由于url太长，服务器不会接受请求。当post请求被转换为带有很长的查询信息的get请求时，就会发生这种情况。<br>　　415 Unsupported Media Type — 由于媒介类型不被支持，服务器不会接受请求。<br>　　416 — 服务器不能满足客户在请求中指定的Range头。<br>　　417 Expectation Failed<br>5xx： #服务器错误# 代表服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。<br>　　500 Internal Server Error — 请求未完成。服务器遇到不可预知的情况。<br>　　501 Not Implemented — 请求未完成。服务器不支持所请求的功能。<br>　　502 Bad Gateway — 请求未完成。服务器从上游服务器收到一个无效的响应。<br>　　503 Service Unavailable — 请求未完成。服务器临时过载或当机。<br>　　504 Gateway Timeout — 网关超时。<br>　　505 HTTP Version Not Supported — 服务器不支持请求中指明的HTTP协议版本。</p>
+<h4 id="HTTP1-1与HTTP1-1的区别-Key-Differences-between-HTTP-1-0-and-HTTP-1-1"><a href="#HTTP1-1与HTTP1-1的区别-Key-Differences-between-HTTP-1-0-and-HTTP-1-1" class="headerlink" title="HTTP1.1与HTTP1.1的区别(Key Differences between HTTP/1.0 and HTTP/1.1)"></a>HTTP1.1与HTTP1.1的区别(<a href="http://www8.org/w8-papers/5c-protocols/key/key.html" target="_blank" rel="external">Key Differences between HTTP/1.0 and HTTP/1.1</a>)</h4><p>最大的区别：HTTP1.0规定浏览器与服务器只保持短暂的链接，每次请求需要建立TCP连接，完成后立即断开；HTTP1.1支持持久连接，一个连接可用于多次响应请求交换，允许客户端不用等待上一次结果返回，就可以发送下一个请求。</p>
+<p>总结：博客要坚持写，小问题也可以写写。</p>
 
       
 
@@ -295,7 +218,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Others/" class="article-tag-list-link color2">Others</a>
+        			<a href="/categories/Font-end/" class="article-tag-list-link color4">Font-end</a>
         		</li>
       		
 		</ul>
@@ -303,18 +226,74 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/02/my-first-blog/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://irisgithub.github.io/2017/04/17/一次http请求/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/01/去掉jQuery/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">去掉jQuery</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
@@ -322,11 +301,28 @@
 
 
   
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="一次http请求" data-title="一次http请求" data-url="https://irisgithub.github.io/2017/04/17/一次http请求/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"IrisGitHub"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+
+
 
 
           </div>
@@ -352,8 +348,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

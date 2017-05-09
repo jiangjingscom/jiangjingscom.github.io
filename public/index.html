@@ -162,6 +162,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-一次http请求" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/17/一次http请求/">一次http请求</a>
+    </h1>
+  
+
+        
+        <a href="/2017/04/17/一次http请求/" class="archive-article-date">
+  	<time datetime="2017-04-17T10:13:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>好久没有写博客了，记录几天前的一个bug，顺便回顾一些之前学的HTTP知识。<br>客户之前要求浏览器支持360和chrome，对版本没有什么要求。想到360极速模式使用的webkit内核，平常代码运行在又chrome上，我感觉可以任性了！但是最近客户改需求需要运行在IE10及以上，小伙伴们开始在IE10上测试。其中一处bug：某次HTTP 请求在chrome上返回200，但在IE10上返回401。<br>在chrome中运行，HTTP 请求详细信息截图如下：</p>
+<p><img src="../../../../assets/img/4-17-1.png"   align=center /></p>
+        
+          <a class="article-more-a" href="/2017/04/17/一次http请求/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Font-end/" class="article-tag-list-link color4">Font-end</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/04/17/一次http请求/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-去掉jQuery" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -441,104 +506,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/03/02/JS对字符串操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-WPF笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/02/WPF笔记/">WPF笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/02/WPF笔记/" class="archive-article-date">
-  	<time datetime="2017-03-02T10:41:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="改写窗体："><a href="#改写窗体：" class="headerlink" title="改写窗体："></a>改写窗体：</h3><p><strong>1.WPF中使用默认窗口框架的外观，可以更改属性：(<a href="http://www.cnblogs.com/libaoheng/archive/2011/11/18/2253751.html">参考</a>)</strong><br><em>Icon</em>: 指定窗口的图标；<br><em>Title</em>: 指定窗口的标题；<br><em>WindowStyle</em>: 指定窗口样式，有4个取值：</p>
-<ul>
-<li>None，无边框；（当ResizeMode属性为NoResize时，仅剩下窗口核心。）</li>
-<li>SingleBorderWindow，单边框【默认】；</li>
-<li>ThreeDBorderWindow，3D边框；</li>
-<li>ToolBorderWindow，工具箱窗口；</li>
-<li>ResizeMode 是指定大小调节样式，有4个取值：</li>
-<li>NoResize，不可调节，同时没有最大最小按钮；</li>
-<li>CanMinimize，不可调节。但可以最小化；（此时最大化按钮不可用）</li>
-<li>CanResize，可调节【默认】；</li>
-<li>CanResizeWithGrid，可根据网格调节；（窗口右下脚显示可调节网格）</li>
-<li>WindowStartLocation 指定窗口初始位置，有3个取值：</li>
-<li>Manual，手工指定位置，表示可以通过设置其Top、Left属性值来决定窗口的初始位置；</li>
-<li>CenterScreen，屏幕中央；</li>
-<li>CenterOwner，父窗体中央；<blockquote>
-<p>另外：</p>
-<ul>
-<li>MaxWidth、MinWidth、MaxHeight、MinHeight ：表示窗口最大宽度、最小宽度、最大高度、最小高度。可以通过得到和更改这些属性值，来获取和改变窗口的大小和长宽范围。</li>
-<li>TitlebarHeight=”45”          //修改窗体titlebar高度；</li>
-<li>AllowsTransparency：获取或设置一个值，该值指示窗口的工作区是否支持透明；</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/03/02/WPF笔记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WPF</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Others/" class="article-tag-list-link color2">Others</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/02/WPF笔记/">展开全文 >></a>
         </p>
       
 

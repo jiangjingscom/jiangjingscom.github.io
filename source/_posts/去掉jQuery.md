@@ -20,7 +20,7 @@ angular.element(document.querySelector("#empl-name"));
 
 <!--more-->
 
-2.替换掉使用jQuery的插件。
+2.替换掉依赖jQuery的插件。
 例如，使用的jQuery的tooltip组件插件，现在换成ui bootstrap中的tooltip组件。
 原来引入jQuery tooltip插件代码后，封装成指令：
 ``` javascript

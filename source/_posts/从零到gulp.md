@@ -36,3 +36,74 @@ categories: Font-end
 最后发现用gulp来watch时一定不要加很多文件啊！只watch经常改变的。不然电脑变得超级卡，还以为自己一脚把主机踢坏了(⊙v⊙).....就酱！
 
 感谢师傅！
+
+----2017-4-30 更新---- 
+gulp + webpack2，附上gulpfile.js的代码：
+``` javascript
+var gulp = require('gulp'),
+  gutil = require('gulp-util'),
+  clean = require('gulp-clean'),
+  concat = require('gulp-concat'),
+  cssmin = require('gulp-cssmin'),
+  connect = require('gulp-connect'),
+  livereload = require('gulp-livereload'),
+  webpack = require('webpack'),
+  webpackConfig = require('./webpack.config.js');
+
+//创建连接
+gulp.task('connect',function(){
+  connect.server({
+    root : "./",
+    ip : "192.168.1.77",
+    port : 8080,
+    livereload : true
+  });
+});
+
+//图片和iconfont到拷贝到assets
+gulp.task('copy:images', function (done) {
+  gulp.src(['./admin/static/img/**/*']).pipe(gulp.dest('./admin/assets/img'))
+    .on('end', done);
+  gulp.src(['./admin/static/font/*']).pipe(gulp.dest('./admin/assets/font'))
+    .on('end', done);
+});
+
+//合并压缩css到assets
+gulp.task('min:css', function (done) {
+  gulp.src(['./admin/static/css/*.css'])
+    .pipe(concat('./style.min.css'))
+    .pipe(cssmin())
+    .pipe(gulp.dest('./admin/assets/css/'))
+    .on('end', done);
+});
+
+//监听文件变化
+gulp.task('watch', function(done){
+  livereload.listen();
+  gulp.watch('./admin/assets/**/*',['build-admin'],function(file){
+    livereload.changed(file.path);
+  }).on('end', done);
+});
+
+//webpack打包
+var myDevConfig = Object.create(webpackConfig);
+var devCompiler = webpack(myDevConfig);
+gulp.task("build-admin",function(callback){
+  devCompiler.run(function(err, stats) {
+        if(err) throw new gutil.PluginError("webpack:build-admin", err);
+        gutil.log("[webpack:build-admin]", stats.toString({
+          colors: true
+        }));
+        callback();
+    });
+});
+
+//build之前clean
+gulp.task('clean', function(done){
+  gulp.src(['admin/assets'])
+    .pipe(clean())
+    .on('end', done);
+});
+
+gulp.task('default',['connect','copy:images','min:css','watch','build-admin']);
+``` 
