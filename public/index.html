@@ -162,6 +162,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-入坑Vue-js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/26/入坑Vue-js/">入坑Vue.js</a>
+    </h1>
+  
+
+        
+        <a href="/2017/05/26/入坑Vue-js/" class="archive-article-date">
+  	<time datetime="2017-05-26T01:41:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>   又有一个多月没写博客了，这篇记录一下最近一个月忙的事情——将使用AngularJS(v1.5.4)框架写的后台换成Vue.js(v2.2.6)啦~巨开心！<br>至于我为什么换,大概是因为每次版本迭代不想按原来的方式改写一遍？时间还算充足？浏览器支持很宽松？想体验ES6写法？听说Vue很棒棒哇？想集齐四大法宝(JQuery/AngularJS/Vue.js/React)……主要原因应该是后台就我一个人在做，想怎么做就怎么做吧~哈哈= =<br>Vue框架使用非常方便，一如它所宣称的轻量高效。而且它的<a href="https://cn.vuejs.org/v2/guide/">官方文档</a>超级清晰，<a href="https://cn.vuejs.org/v2/api/">api</a>对于本菜来说也够用。之前用过几个月的Angular,文档到现在还没有全部看完（嗯，可能我比较懒…但它的东西真的多的不要不要的），但是Vue,它的文档我已经刷了好几遍（闲来无事刷文档）= =对于我这种准备学习一门语言或框架之前往往需要先完完整整过一两遍比较全的书或文档，才能放心开始学习的人来说，简直不要太棒！嗯，少说废话，进入正题。<br>首先搭一个框架，做好准备工作。用vue-cli脚手架工具(npm install vue-cli -g)，初始化项目(vue init webpack-simple admin)很快得到admin项目下的完整目录：</p>
+<p><img src="../../../../assets/img/5-31-1.png"   align=center /></p>
+        
+          <a class="article-more-a" href="/2017/05/26/入坑Vue-js/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Font-end/" class="article-tag-list-link color4">Font-end</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/05/26/入坑Vue-js/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-一次http请求" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -441,88 +517,6 @@
 
 
   
-    <article id="post-JS对字符串操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/02/JS对字符串操作/">JS对字符串操作</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/02/JS对字符串操作/" class="archive-article-date">
-  	<time datetime="2017-03-02T10:44:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="截取字符串："><a href="#截取字符串：" class="headerlink" title="截取字符串："></a>截取字符串：</h4><p><strong>1.split： 把一个字符串分割成字符串数组。</strong></p>
-<p><em>功能</em> ：使用一个指定的分隔符把字符串分隔存储到数组<br><em>语法</em> ：<font color=red>str.split(separator,size)</font><br><em>参数</em> ：</p>
-<ul>
-<li>str：必选项。要截取的字符串。</li>
-<li>separator: 必选项。要分割的条件，是字符串或表达式。</li>
-<li>size：可选项。返回数组的长度。不定义则全部返回。</li>
-</ul>
-<p><em>实例</em> ：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=”jpg|bmp|gif|ico|png”; arr=str.split(”|”);<span class="comment">//arr是一个包含字符值”jpg”、”bmp”、”gif”、”ico”和”png”的数组</span></div></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2017/03/02/JS对字符串操作/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Font-end/" class="article-tag-list-link color4">Font-end</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/02/JS对字符串操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -616,11 +610,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WPF</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">WPF</a>
               </li>
             
             <div class="clearfix"></div>

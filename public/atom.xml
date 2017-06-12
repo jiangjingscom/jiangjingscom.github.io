@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://irisgithub.github.io/"/>
-  <updated>2017-05-05T03:19:23.085Z</updated>
+  <updated>2017-06-12T11:57:45.043Z</updated>
   <id>https://irisgithub.github.io/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>入坑Vue.js</title>
+    <link href="https://irisgithub.github.io/2017/05/26/%E5%85%A5%E5%9D%91Vue-js/"/>
+    <id>https://irisgithub.github.io/2017/05/26/入坑Vue-js/</id>
+    <published>2017-05-26T01:41:27.000Z</published>
+    <updated>2017-06-12T11:57:45.043Z</updated>
+    
+    <content type="html"><![CDATA[<p>   又有一个多月没写博客了，这篇记录一下最近一个月忙的事情——将使用AngularJS(v1.5.4)框架写的后台换成Vue.js(v2.2.6)啦~巨开心！<br>至于我为什么换,大概是因为每次版本迭代不想按原来的方式改写一遍？时间还算充足？浏览器支持很宽松？想体验ES6写法？听说Vue很棒棒哇？想集齐四大法宝(JQuery/AngularJS/Vue.js/React)……主要原因应该是后台就我一个人在做，想怎么做就怎么做吧~哈哈= =<br>Vue框架使用非常方便，一如它所宣称的轻量高效。而且它的<a href="https://cn.vuejs.org/v2/guide/" target="_blank" rel="external">官方文档</a>超级清晰，<a href="https://cn.vuejs.org/v2/api/" target="_blank" rel="external">api</a>对于本菜来说也够用。之前用过几个月的Angular,文档到现在还没有全部看完（嗯，可能我比较懒…但它的东西真的多的不要不要的），但是Vue,它的文档我已经刷了好几遍（闲来无事刷文档）= =对于我这种准备学习一门语言或框架之前往往需要先完完整整过一两遍比较全的书或文档，才能放心开始学习的人来说，简直不要太棒！嗯，少说废话，进入正题。<br>首先搭一个框架，做好准备工作。用vue-cli脚手架工具(npm install vue-cli -g)，初始化项目(vue init webpack-simple admin)很快得到admin项目下的完整目录：</p>
+<p><img src="../../../../assets/img/5-31-1.png" align="center"></p>
+<a id="more"></a>
+<p>详细的网上有教程，其中build和config里面放的是一些配置文件(主要是webpack的，用于打包),dist中放的是开发好的目录，如果要直接放在服务器中访问，需要简单修改一下config文件中的index.js,static放静态资源，src就是我们的开发目录啦。<br>除了vue-cli帮我们安装的一些npm包，由于项目需要，另外引入一些工具</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">"dependencies": &#123;</div><div class="line">  // 解决http请求</div><div class="line">  "axios": "^0.16.1",</div><div class="line">  // 解决Babel对于一些api(如Promise等)不转码的问题</div><div class="line">  "babel-polyfill": "^6.23.0",</div><div class="line">  // 强大的时间操作工具</div><div class="line">  "moment": "^2.18.1",</div><div class="line">  // 简单的tooltip</div><div class="line">  "v-tooltip": "^2.0.0-beta.4",</div><div class="line">  "vue": "^2.2.6",</div><div class="line">  // vue 官方路由</div><div class="line">  "vue-router": "^2.3.1",</div><div class="line">  // vue官方状态管理模式</div><div class="line">  "vuex": "^2.3.1"</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>其中，<a href="https://vuex.vuejs.org/zh-cn/getting-started.html" target="_blank" rel="external">vuex</a>和<a href="https://router.vuejs.org/zh-cn/" target="_blank" rel="external">vue-router</a>都有官方文档，十分详细。引入axios是因为vue不像angular，angular提供的$http服务同服务端通信，相比vue-resource,官方推荐强大的axios！用上babel-polyfill工具，因为想使用一些ES6新的api，真想把它们统统都夸一遍 = =<br>看一下项目目录：</p>
+<p><img src="../../../../assets/img/5-31-2.png" align="center"></p>
+<p>component: 一些组件(toast,tree,modal,avatar),由于不想引入大而全的库(很多东西不需要)，模式组件源于自己写写改改。<br>directive: 一些指令(v-focus)<br>filter: 一些过滤器(时间、文件大小，操作记录等等)，另外，可直接在组件内部使用computed,有时候它更好用。<br>libs: 一些工具，引用库<br>router: 配置vue路由<br>service: 所有http请求，按照原来在angular框架时师傅教的，将所有api独立出来，感觉好写好改好查找。<br>store: vue的状态管理，我主要放了个人信息和组织结构树信息，方便管理数据<br>views: 所有路由页(因为在做单页应用，在只用component还是用部分router两种模式比较了一下，发现都差不多，为了用上全家桶，用上router)<br>展开的就不放了，因为文件特别多 = =<br>一个简单的component样式：</p>
+<p><img src="../../../../assets/img/5-31-3.png" align="center"></p>
+<p><img src="../../../../assets/img/5-31-4.png" align="center"></p>
+<p>未完，待续……</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;   又有一个多月没写博客了，这篇记录一下最近一个月忙的事情——将使用AngularJS(v1.5.4)框架写的后台换成Vue.js(v2.2.6)啦~巨开心！&lt;br&gt;至于我为什么换,大概是因为每次版本迭代不想按原来的方式改写一遍？时间还算充足？浏览器支持很宽松？想体验ES6写法？听说Vue很棒棒哇？想集齐四大法宝(JQuery/AngularJS/Vue.js/React)……主要原因应该是后台就我一个人在做，想怎么做就怎么做吧~哈哈= =&lt;br&gt;Vue框架使用非常方便，一如它所宣称的轻量高效。而且它的&lt;a href=&quot;https://cn.vuejs.org/v2/guide/&quot;&gt;官方文档&lt;/a&gt;超级清晰，&lt;a href=&quot;https://cn.vuejs.org/v2/api/&quot;&gt;api&lt;/a&gt;对于本菜来说也够用。之前用过几个月的Angular,文档到现在还没有全部看完（嗯，可能我比较懒…但它的东西真的多的不要不要的），但是Vue,它的文档我已经刷了好几遍（闲来无事刷文档）= =对于我这种准备学习一门语言或框架之前往往需要先完完整整过一两遍比较全的书或文档，才能放心开始学习的人来说，简直不要太棒！嗯，少说废话，进入正题。&lt;br&gt;首先搭一个框架，做好准备工作。用vue-cli脚手架工具(npm install vue-cli -g)，初始化项目(vue init webpack-simple admin)很快得到admin项目下的完整目录：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../../../assets/img/5-31-1.png&quot;   align=center /&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Font-end" scheme="https://irisgithub.github.io/categories/font-end/"/>
+    
+    
+      <category term="JavaScript" scheme="https://irisgithub.github.io/tags/js/"/>
+    
+  </entry>
   
   <entry>
     <title>一次http请求</title>
