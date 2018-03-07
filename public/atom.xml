@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://irisgithub.github.io/"/>
-  <updated>2017-06-12T11:57:45.043Z</updated>
+  <updated>2018-03-07T10:07:13.197Z</updated>
   <id>https://irisgithub.github.io/</id>
   
   <author>
@@ -16,11 +16,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>入坑Vue.js</title>
+    <title>vue tree</title>
+    <link href="https://irisgithub.github.io/2017/07/25/vue%20tree/"/>
+    <id>https://irisgithub.github.io/2017/07/25/vue tree/</id>
+    <published>2017-07-25T08:30:09.000Z</published>
+    <updated>2018-03-07T10:07:13.197Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="Font-end" scheme="https://irisgithub.github.io/categories/font-end/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Vue.js使用</title>
     <link href="https://irisgithub.github.io/2017/05/26/%E5%85%A5%E5%9D%91Vue-js/"/>
     <id>https://irisgithub.github.io/2017/05/26/入坑Vue-js/</id>
     <published>2017-05-26T01:41:27.000Z</published>
-    <updated>2017-06-12T11:57:45.043Z</updated>
+    <updated>2018-03-07T10:02:06.571Z</updated>
     
     <content type="html"><![CDATA[<p>   又有一个多月没写博客了，这篇记录一下最近一个月忙的事情——将使用AngularJS(v1.5.4)框架写的后台换成Vue.js(v2.2.6)啦~巨开心！<br>至于我为什么换,大概是因为每次版本迭代不想按原来的方式改写一遍？时间还算充足？浏览器支持很宽松？想体验ES6写法？听说Vue很棒棒哇？想集齐四大法宝(JQuery/AngularJS/Vue.js/React)……主要原因应该是后台就我一个人在做，想怎么做就怎么做吧~哈哈= =<br>Vue框架使用非常方便，一如它所宣称的轻量高效。而且它的<a href="https://cn.vuejs.org/v2/guide/" target="_blank" rel="external">官方文档</a>超级清晰，<a href="https://cn.vuejs.org/v2/api/" target="_blank" rel="external">api</a>对于本菜来说也够用。之前用过几个月的Angular,文档到现在还没有全部看完（嗯，可能我比较懒…但它的东西真的多的不要不要的），但是Vue,它的文档我已经刷了好几遍（闲来无事刷文档）= =对于我这种准备学习一门语言或框架之前往往需要先完完整整过一两遍比较全的书或文档，才能放心开始学习的人来说，简直不要太棒！嗯，少说废话，进入正题。<br>首先搭一个框架，做好准备工作。用vue-cli脚手架工具(npm install vue-cli -g)，初始化项目(vue init webpack-simple admin)很快得到admin项目下的完整目录：</p>
 <p><img src="../../../../assets/img/5-31-1.png" align="center"></p>
@@ -33,6 +49,7 @@
 <p><img src="../../../../assets/img/5-31-3.png" align="center"></p>
 <p><img src="../../../../assets/img/5-31-4.png" align="center"></p>
 <p>未完，待续……</p>
+<p>—-2018-3-1 更新—-<br>    待续？用完三个框架，感觉Vue最方便好用，简单易入门，解决了数据绑定、组件开发、页面路由等痛点，配套Vuex解决数据管理，差不多了，对于我之前写的小项目来说，好用，没毛病…<br>    有机会还会再用，好评。(^o^)/~</p>
 ]]></content>
     
     <summary type="html">
@@ -376,7 +393,7 @@ gulp.task(<span class="string">'default'</span>,[<span class="string">'connect'<
     <link href="https://irisgithub.github.io/2017/03/02/JS%E5%AF%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/"/>
     <id>https://irisgithub.github.io/2017/03/02/JS对字符串操作/</id>
     <published>2017-03-02T10:44:08.000Z</published>
-    <updated>2017-03-29T09:49:32.571Z</updated>
+    <updated>2018-03-07T10:06:59.293Z</updated>
     
     <content type="html"><![CDATA[<h4 id="截取字符串："><a href="#截取字符串：" class="headerlink" title="截取字符串："></a>截取字符串：</h4><p><strong>1.split： 把一个字符串分割成字符串数组。</strong></p>
 <p><em>功能</em> ：使用一个指定的分隔符把字符串分隔存储到数组<br><em>语法</em> ：<font color="red">str.split(separator,size)</font><br><em>参数</em> ：</p>
@@ -432,6 +449,7 @@ gulp.task(<span class="string">'default'</span>,[<span class="string">'connect'<
 <li>string:必选项。正则对象。</li>
 <li>replacement: 必选项。要替换的字符。</li>
 </ul>
+<p>—-记录这些是因为某些时候会记错某个方法返回结果，基本用法还是要记一记的，羞愧= =—- </p>
 ]]></content>
     
     <summary type="html">
@@ -541,7 +559,7 @@ gulp.task(<span class="string">'default'</span>,[<span class="string">'connect'<
     <link href="https://irisgithub.github.io/2017/03/02/my-first-blog/"/>
     <id>https://irisgithub.github.io/2017/03/02/my-first-blog/</id>
     <published>2017-03-02T08:40:04.000Z</published>
-    <updated>2017-04-05T08:51:39.763Z</updated>
+    <updated>2018-03-07T09:31:44.865Z</updated>
     
     <content type="html"><![CDATA[<p>博客由hexo+github搭建，遵循markdown语法来编辑博客，网上教程很多，比较简单。<br>博客内容来自于印象笔记，从我的小本本上选一些搬出来，(⊙v⊙)嗯！</p>
 ]]></content>

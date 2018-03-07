@@ -5,7 +5,6 @@ categories: Font-end
 tags: JavaScript
 ---
 
-
 #### 截取字符串：
 
 **1.split： 把一个字符串分割成字符串数组。**
@@ -130,3 +129,5 @@ alert(str.charCodeAt(2))  //结果为103。即g的Unicode编码为103
 - str：必选项。要替换的字符串。
 - string:必选项。正则对象。
 - replacement: 必选项。要替换的字符。
+
+----记录这些是因为某些时候会记错某个方法返回结果，基本用法还是要记一记的，羞愧= =---- 
