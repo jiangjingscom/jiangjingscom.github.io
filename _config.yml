@@ -66,8 +66,7 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
-plugins:
-  hexo-generator-feed
+plugins_dir: hexo-generator-feed
 ## Themes: https://hexo.io/themes/
 theme: yilia
 
