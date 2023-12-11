@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>从零到gulp | Iris&#39; Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本菜刚开始写前端页面，目录是这样的，js放一起，html放一起：然后，我开始学nwjs啦，多了一个package.json文件（plugins打算用来放插件，是空的；.log文件打算用node的file模块写入日志），之后本菜默默开始写登录小窗，菜单，托盘，然后…写完demo明白自己很菜开始好好学js。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零到gulp">
+<meta property="og:url" content="https://irisgithub.github.io/2017/03/16/%E4%BB%8E%E9%9B%B6%E5%88%B0gulp/index.html">
+<meta property="og:site_name" content="Iris&#39; Blog">
+<meta property="og:description" content="本菜刚开始写前端页面，目录是这样的，js放一起，html放一起：然后，我开始学nwjs啦，多了一个package.json文件（plugins打算用来放插件，是空的；.log文件打算用node的file模块写入日志），之后本菜默默开始写登录小窗，菜单，托盘，然后…写完demo明白自己很菜开始好好学js。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://irisgithub.github.io/assets/img/3-16-1.png">
+<meta property="og:image" content="https://irisgithub.github.io/assets/img/3-16-2.png">
+<meta property="og:image" content="https://irisgithub.github.io/assets/img/3-16-3.png">
+<meta property="og:image" content="https://irisgithub.github.io/assets/img/3-16-4.png">
+<meta property="og:image" content="https://irisgithub.github.io/assets/img/3-16-5.png">
+<meta property="og:image" content="https://irisgithub.github.io/assets/img/3-16-6.png">
+<meta property="og:image" content="https://irisgithub.github.io/assets/img/3-16-7.png">
+<meta property="article:published_time" content="2017-03-16T09:13:27.000Z">
+<meta property="article:modified_time" content="2021-04-17T14:42:56.357Z">
+<meta property="article:author" content="Iris">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://irisgithub.github.io/assets/img/3-16-1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Iris&#39; Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Iris&#39; Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://irisgithub.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-从零到gulp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/16/%E4%BB%8E%E9%9B%B6%E5%88%B0gulp/" class="article-date">
+  <time datetime="2017-03-16T09:13:27.000Z" itemprop="datePublished">2017-03-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/font-end/">Font-end</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      从零到gulp
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本菜刚开始写前端页面，目录是这样的，js放一起，html放一起：<br><img src="../../../../assets/img/3-16-1.png"   align=center /><br>然后，我开始学nwjs啦，多了一个package.json文件（plugins打算用来放插件，是空的；.log文件打算用node的file模块写入日志），之后本菜默默开始写登录小窗，菜单，托盘，然后…写完demo明白自己很菜开始好好学js。<br><img src="../../../../assets/img/3-16-2.png"   align=center /></p>
+<span id="more"></span>
+
+<p>开始刷书，刷博客，刷代码，看小伙伴们的代码…于是我开始写简单页面啦，开始用jquery（获取和操作DOM元素，写ajax请求），angularjs，最初目录是这样：<br><img src="../../../../assets/img/3-16-3.png"   align=center /><br>开始安装node，利用npm管理模块，学着小伙伴用webpack，一个入口index.js文件，功能分开写再打包成一个js文件；装fis3，更改代码可以自动刷新页面，目录变成这样：<br><img src="../../../../assets/img/3-16-4.png"   align=center /><br>开始好好学angularjs，路由，数据绑定，指令，师傅组装的ui组件…发现自己真的菜，好多知识要学，嗯！舍弃fis3（文件多了，release变慢，-wL要等好久），用http-server，目录变成这样：<br><img src="../../../../assets/img/3-16-5.png"   align=center /><br>然后，发现gulp,新大陆！添加一个gulpfile.js文件，用gulp-connect创建web服务器；可以watch页面，gulp-livereload自动刷新；嵌入原来的webpack.config.js还能继续打包；只用运行一个gulp，开心！</p>
+<p>某一天，我发现我的cpu原来是这样：<br><img src="../../../../assets/img/3-16-6.png"   align=center /><br>开了gulp之后，变成这样：<br><img src="../../../../assets/img/3-16-7.png"   align=center /></p>
+<p>………</p>
+<p>我想这一定是我的错！</p>
+<p>………</p>
+<p>最后发现用gulp来watch时一定不要加很多文件啊！只watch经常改变的。不然电脑变得超级卡，还以为自己一脚把主机踢坏了(⊙v⊙)…..就酱！</p>
+<p>感谢师傅！</p>
+<p>—-2017-4-30 更新—-<br>gulp + webpack2，附上gulpfile.js的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&#x27;gulp&#x27;</span>),</span><br><span class="line">  gutil = <span class="built_in">require</span>(<span class="string">&#x27;gulp-util&#x27;</span>),</span><br><span class="line">  clean = <span class="built_in">require</span>(<span class="string">&#x27;gulp-clean&#x27;</span>),</span><br><span class="line">  concat = <span class="built_in">require</span>(<span class="string">&#x27;gulp-concat&#x27;</span>),</span><br><span class="line">  cssmin = <span class="built_in">require</span>(<span class="string">&#x27;gulp-cssmin&#x27;</span>),</span><br><span class="line">  connect = <span class="built_in">require</span>(<span class="string">&#x27;gulp-connect&#x27;</span>),</span><br><span class="line">  livereload = <span class="built_in">require</span>(<span class="string">&#x27;gulp-livereload&#x27;</span>),</span><br><span class="line">  webpack = <span class="built_in">require</span>(<span class="string">&#x27;webpack&#x27;</span>),</span><br><span class="line">  webpackConfig = <span class="built_in">require</span>(<span class="string">&#x27;./webpack.config.js&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建连接</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;connect&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  connect.<span class="title function_">server</span>(&#123;</span><br><span class="line">    root : <span class="string">&quot;./&quot;</span>,</span><br><span class="line">    ip : <span class="string">&quot;192.168.1.77&quot;</span>,</span><br><span class="line">    port : <span class="number">8080</span>,</span><br><span class="line">    livereload : <span class="literal">true</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//图片和iconfont到拷贝到assets</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;copy:images&#x27;</span>, <span class="keyword">function</span> (<span class="params">done</span>) &#123;</span><br><span class="line">  gulp.<span class="title function_">src</span>([<span class="string">&#x27;./admin/static/img/**/*&#x27;</span>]).<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./admin/assets/img&#x27;</span>))</span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, done);</span><br><span class="line">  gulp.<span class="title function_">src</span>([<span class="string">&#x27;./admin/static/font/*&#x27;</span>]).<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./admin/assets/font&#x27;</span>))</span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, done);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//合并压缩css到assets</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;min:css&#x27;</span>, <span class="keyword">function</span> (<span class="params">done</span>) &#123;</span><br><span class="line">  gulp.<span class="title function_">src</span>([<span class="string">&#x27;./admin/static/css/*.css&#x27;</span>])</span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">concat</span>(<span class="string">&#x27;./style.min.css&#x27;</span>))</span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">cssmin</span>())</span><br><span class="line">    .<span class="title function_">pipe</span>(gulp.<span class="title function_">dest</span>(<span class="string">&#x27;./admin/assets/css/&#x27;</span>))</span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, done);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//监听文件变化</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;watch&#x27;</span>, <span class="keyword">function</span>(<span class="params">done</span>)&#123;</span><br><span class="line">  livereload.<span class="title function_">listen</span>();</span><br><span class="line">  gulp.<span class="title function_">watch</span>(<span class="string">&#x27;./admin/assets/**/*&#x27;</span>,[<span class="string">&#x27;build-admin&#x27;</span>],<span class="keyword">function</span>(<span class="params">file</span>)&#123;</span><br><span class="line">    livereload.<span class="title function_">changed</span>(file.<span class="property">path</span>);</span><br><span class="line">  &#125;).<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, done);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//webpack打包</span></span><br><span class="line"><span class="keyword">var</span> myDevConfig = <span class="title class_">Object</span>.<span class="title function_">create</span>(webpackConfig);</span><br><span class="line"><span class="keyword">var</span> devCompiler = <span class="title function_">webpack</span>(myDevConfig);</span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&quot;build-admin&quot;</span>,<span class="keyword">function</span>(<span class="params">callback</span>)&#123;</span><br><span class="line">  devCompiler.<span class="title function_">run</span>(<span class="keyword">function</span>(<span class="params">err, stats</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(err) <span class="keyword">throw</span> <span class="keyword">new</span> gutil.<span class="title class_">PluginError</span>(<span class="string">&quot;webpack:build-admin&quot;</span>, err);</span><br><span class="line">        gutil.<span class="title function_">log</span>(<span class="string">&quot;[webpack:build-admin]&quot;</span>, stats.<span class="title function_">toString</span>(&#123;</span><br><span class="line">          <span class="attr">colors</span>: <span class="literal">true</span></span><br><span class="line">        &#125;));</span><br><span class="line">        <span class="title function_">callback</span>();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//build之前clean</span></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;clean&#x27;</span>, <span class="keyword">function</span>(<span class="params">done</span>)&#123;</span><br><span class="line">  gulp.<span class="title function_">src</span>([<span class="string">&#x27;admin/assets&#x27;</span>])</span><br><span class="line">    .<span class="title function_">pipe</span>(<span class="title function_">clean</span>())</span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, done);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.<span class="title function_">task</span>(<span class="string">&#x27;default&#x27;</span>,[<span class="string">&#x27;connect&#x27;</span>,<span class="string">&#x27;copy:images&#x27;</span>,<span class="string">&#x27;min:css&#x27;</span>,<span class="string">&#x27;watch&#x27;</span>,<span class="string">&#x27;build-admin&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://irisgithub.github.io/2017/03/16/%E4%BB%8E%E9%9B%B6%E5%88%B0gulp/" data-id="clq18rrw70008vf4kesd63dq0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/17/git%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          git学习记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/02/JS%E5%AF%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JS对字符串操作</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/font-end/">Font-end</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">Others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">others</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wpf/" rel="tag">WPF</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/js/" style="font-size: 20px;">JavaScript</a> <a href="/tags/wpf/" style="font-size: 10px;">WPF</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/09/11/work/">我的工作经历</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/26/%E5%85%A5%E5%9D%91Vue-js/">Vue.js使用</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/17/%E4%B8%80%E6%AC%A1http%E8%AF%B7%E6%B1%82/">一次http请求</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/01/%E5%8E%BB%E6%8E%89jQuery/">去掉jQuery</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/17/git%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">git学习记录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 Iris<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

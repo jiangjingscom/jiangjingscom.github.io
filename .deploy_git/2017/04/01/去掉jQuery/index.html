@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>去掉jQuery | Iris&#39; Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。1.Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="去掉jQuery">
+<meta property="og:url" content="https://irisgithub.github.io/2017/04/01/%E5%8E%BB%E6%8E%89jQuery/index.html">
+<meta property="og:site_name" content="Iris&#39; Blog">
+<meta property="og:description" content="一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。1.Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://irisgithub.github.io/assets/img/4-1-1.png">
+<meta property="article:published_time" content="2017-04-01T07:59:49.000Z">
+<meta property="article:modified_time" content="2021-04-17T14:42:56.358Z">
+<meta property="article:author" content="Iris">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://irisgithub.github.io/assets/img/4-1-1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Iris&#39; Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Iris&#39; Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://irisgithub.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-去掉jQuery" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/01/%E5%8E%BB%E6%8E%89jQuery/" class="article-date">
+  <time datetime="2017-04-01T07:59:49.000Z" itemprop="datePublished">2017-04-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/font-end/">Font-end</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      去掉jQuery
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一直在Angular中混用jQuery，用来操作DOM，因为它(wo)很(tai)方(nian)便(qing)，最近将jQuery从项目中移除了，将所有涉及到jQuery操作换为用angular提供的api或原生js来实现……虽然jQuery压缩过才100kb左右。<br>1.Angular内置jqLite，封装了部分操作DOM的api，使用angular.element(ele)相当于jQuery中的$,具体使用见官方<a target="_blank" rel="noopener" href="https://code.angularjs.org/1.5.4/docs/api/ng/function/angular.element">文档</a>。<br>因此我们所使用的jQuery选择器，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;#empl-name&quot;</span>).<span class="title function_">val</span>();</span><br></pre></td></tr></table></figure>
+<p>可以换成：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">angular.<span class="title function_">element</span>(<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#empl-name&quot;</span>));</span><br></pre></td></tr></table></figure>
+<p>使用document.querySelector 的原因官方文档中有说明:</p>
+<img src="../../../../assets/img/4-1-1.png"   align=center />
+
+<span id="more"></span>
+
+<p>2.替换掉依赖jQuery的插件。<br>例如，使用的jQuery的tooltip组件插件，现在换成ui bootstrap中的tooltip组件。<br>原来引入jQuery tooltip插件代码后，封装成指令：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> moduleName=<span class="string">&quot;kass.widget.tooltip&quot;</span>;</span><br><span class="line">angular.<span class="title function_">module</span>(moduleName,[])</span><br><span class="line">.<span class="title function_">directive</span>(<span class="string">&quot;tooltip&quot;</span>,[<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="keyword">return</span>&#123;</span><br><span class="line">		restrict : <span class="string">&quot;A&quot;</span>,</span><br><span class="line">		link : <span class="keyword">function</span>(<span class="params">scope, element, attrs</span>)&#123;<span class="comment">//element:指令标签对象     attrs:指令属性</span></span><br><span class="line">			<span class="keyword">var</span> opts =&#123;</span><br><span class="line">				<span class="comment">//将带有tooltip属性的&quot;Target element&quot;传给插件创建tooltip</span></span><br><span class="line">				<span class="attr">formatter</span>: <span class="keyword">function</span>(<span class="params">scope</span>)&#123;</span><br><span class="line">					<span class="keyword">return</span> scope.<span class="property">$target</span>.<span class="title function_">attr</span>(<span class="string">&quot;tooltip&quot;</span>);<span class="comment">//$target是利用$(this)封装的jquery对象</span></span><br><span class="line">				&#125;,</span><br><span class="line">				<span class="comment">//插件提供的tooltip属性值direction与指令属性tooltipDirection</span></span><br><span class="line">				direction : attrs.<span class="property">tooltipDirection</span> ? attrs.<span class="property">tooltipDirection</span> : <span class="string">&quot;bottom&quot;</span></span><br><span class="line">			&#125;;</span><br><span class="line">			<span class="comment">//插件提供的tipper方法设置tooltip属性值</span></span><br><span class="line">			element.<span class="title function_">tipper</span>(opts);</span><br><span class="line">			element.<span class="title function_">one</span>(<span class="string">&quot;$destroy&quot;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">				element.<span class="title function_">tipper</span>(<span class="string">&quot;destroy&quot;</span>);</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;]);</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>=moduleName;</span><br></pre></td></tr></table></figure>
+<p>引入ui bootstrap 中的tooptip部分：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&quot;./position&quot;</span>);<span class="comment">//ui bootstrap的position部分</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;./stackedMap&quot;</span>);<span class="comment">//ui bootstrap的stackedMap部分</span></span><br><span class="line">angular.<span class="title function_">module</span>(<span class="string">&#x27;ui.bootstrap.tooltip&#x27;</span>, [<span class="string">&#x27;ui.bootstrap.position&#x27;</span>, <span class="string">&#x27;ui.bootstrap.stackedMap&#x27;</span>,<span class="string">&quot;uib/template/tooltip/tooltip-html-popup.html&quot;</span>,<span class="string">&quot;uib/template/tooltip/tooltip-popup.html&quot;</span>,<span class="string">&quot;uib/template/tooltip/tooltip-template-popup.html&quot;</span>])     </span><br><span class="line">.<span class="title function_">provider</span>(<span class="string">&#x27;$uibTooltip&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>)&#123;........&#125;)</span><br><span class="line">......</span><br><span class="line">.<span class="title function_">directive</span>(<span class="string">&#x27;uibTooltipTemplatePopup&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">restrict</span>: <span class="string">&#x27;A&#x27;</span>,</span><br><span class="line">    <span class="attr">scope</span>: &#123; <span class="attr">contentExp</span>: <span class="string">&#x27;&amp;&#x27;</span>, <span class="attr">originScope</span>: <span class="string">&#x27;&amp;&#x27;</span> &#125;,</span><br><span class="line">    <span class="attr">templateUrl</span>: <span class="string">&#x27;uib/template/tooltip/tooltip-template-popup.html&#x27;</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;);</span><br><span class="line">......</span><br><span class="line">angular.<span class="title function_">module</span>(<span class="string">&quot;uib/template/tooltip/tooltip-popup.html&quot;</span>, []).<span class="title function_">run</span>(......);</span><br><span class="line">......</span><br><span class="line">angular.<span class="title function_">module</span>(<span class="string">&#x27;ui.bootstrap.tooltip&#x27;</span>).<span class="title function_">run</span>(......);</span><br></pre></td></tr></table></figure>
+<p>发现github上的一个封装angular tooltip的<a target="_blank" rel="noopener" href="https://github.com/720kb/angular-tooltips">项目</a>,使用方便有demo,⊙o⊙……</p>
+<p>3.jQuery的动画部分。<br>一些动画可以直接使用css的animation、transition属性进行设置，还可以使用angular提供的动画。<br>例如jQuery一个简单的改变位置动画，需要在动画完成后移除这个指令组件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&quot;.side-modal&quot;</span>).<span class="title function_">animate</span>(&#123;<span class="attr">right</span>:<span class="string">&#x27;-100%&#x27;</span>&#125;,<span class="number">300</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	$scope.$apply(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">		$scope.<span class="title function_">onRemove</span>();</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>使用angular的动画，要引入angular-animate.js文件，注入ngAnimate：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="built_in">require</span>(<span class="string">&quot;./angular-animte-min&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> moduleName = <span class="string">&quot;animateTest&quot;</span>;</span><br><span class="line">angular.<span class="title function_">module</span>(moduleName,[<span class="string">&quot;ngAnimate&quot;</span>])</span><br><span class="line">.<span class="title function_">directive</span>(myTest,[<span class="string">&quot;$animate&quot;</span>,<span class="keyword">function</span>(<span class="params"><span class="string">&quot;$animate&quot;</span></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span>&#123;</span><br><span class="line">        restrict : <span class="string">&quot;AE&quot;</span>,</span><br><span class="line">        replace : <span class="literal">false</span>,</span><br><span class="line">        scope : &#123;</span><br><span class="line">            onRemove : <span class="string">&quot;&amp;&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        template : <span class="built_in">require</span>(<span class="string">&quot;html!../template/to/mytest.html&quot;</span>),</span><br><span class="line">        controller : [<span class="string">&quot;$scope&quot;</span>,<span class="keyword">function</span>(<span class="params">$scope</span>)&#123;</span><br><span class="line">            ......</span><br><span class="line">            <span class="keyword">var</span> slideBox = angular.<span class="title function_">element</span>(<span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;.side-modal&quot;</span>));</span><br><span class="line">            $animate.<span class="title function_">addClass</span>(slideBox,<span class="string">&#x27;set-right&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">                $scope.<span class="title function_">onRemove</span>();<span class="comment">//callback,动画完成后移除指令</span></span><br><span class="line">            &#125;);</span><br><span class="line">            ......</span><br><span class="line">        &#125;],</span><br><span class="line">        <span class="attr">link</span>:<span class="keyword">function</span>(<span class="params">scope,element,attrs</span>)&#123;......&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;]);</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>=moduleName;</span><br></pre></td></tr></table></figure>
+<p>4.其他部分可以参考github上的一个项目：<a target="_blank" rel="noopener" href="https://github.com/oneuijs/You-Dont-Need-jQuery">You Don’t Need jQuery</a>。</p>
+<hr>
+<p><font color=red>April Fool’s Day </font>….⊙o⊙….</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://irisgithub.github.io/2017/04/01/%E5%8E%BB%E6%8E%89jQuery/" data-id="clq18rrw7000bvf4k1w3cabk1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/17/%E4%B8%80%E6%AC%A1http%E8%AF%B7%E6%B1%82/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          一次http请求
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/17/git%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">git学习记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/font-end/">Font-end</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">Others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">others</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wpf/" rel="tag">WPF</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/js/" style="font-size: 20px;">JavaScript</a> <a href="/tags/wpf/" style="font-size: 10px;">WPF</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/09/11/work/">我的工作经历</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/26/%E5%85%A5%E5%9D%91Vue-js/">Vue.js使用</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/17/%E4%B8%80%E6%AC%A1http%E8%AF%B7%E6%B1%82/">一次http请求</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/01/%E5%8E%BB%E6%8E%89jQuery/">去掉jQuery</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/17/git%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">git学习记录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 Iris<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>

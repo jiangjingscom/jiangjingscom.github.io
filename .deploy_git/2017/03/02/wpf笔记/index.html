@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>WPF笔记 | Iris&#39; Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="改写窗体：1.WPF中使用默认窗口框架的外观，可以更改属性：(参考)Icon: 指定窗口的图标；Title: 指定窗口的标题；WindowStyle: 指定窗口样式，有4个取值：  None，无边框；（当ResizeMode属性为NoResize时，仅剩下窗口核心。） SingleBorderWindow，单边框【默认】； ThreeDBorderWindow，3D边框； ToolBorderWi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WPF笔记">
+<meta property="og:url" content="https://irisgithub.github.io/2017/03/02/wpf%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Iris&#39; Blog">
+<meta property="og:description" content="改写窗体：1.WPF中使用默认窗口框架的外观，可以更改属性：(参考)Icon: 指定窗口的图标；Title: 指定窗口的标题；WindowStyle: 指定窗口样式，有4个取值：  None，无边框；（当ResizeMode属性为NoResize时，仅剩下窗口核心。） SingleBorderWindow，单边框【默认】； ThreeDBorderWindow，3D边框； ToolBorderWi">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-03-02T10:41:51.000Z">
+<meta property="article:modified_time" content="2021-04-17T14:42:56.357Z">
+<meta property="article:author" content="Iris">
+<meta property="article:tag" content="WPF">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Iris&#39; Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Iris&#39; Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://irisgithub.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-wpf笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/02/wpf%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2017-03-02T10:41:51.000Z" itemprop="datePublished">2017-03-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/others/">Others</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      WPF笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="改写窗体："><a href="#改写窗体：" class="headerlink" title="改写窗体："></a>改写窗体：</h3><p><strong>1.WPF中使用默认窗口框架的外观，可以更改属性：(<a target="_blank" rel="noopener" href="http://www.cnblogs.com/libaoheng/archive/2011/11/18/2253751.html">参考</a>)</strong><br><em>Icon</em>: 指定窗口的图标；<br><em>Title</em>: 指定窗口的标题；<br><em>WindowStyle</em>: 指定窗口样式，有4个取值：</p>
+<ul>
+<li>None，无边框；（当ResizeMode属性为NoResize时，仅剩下窗口核心。）</li>
+<li>SingleBorderWindow，单边框【默认】；</li>
+<li>ThreeDBorderWindow，3D边框；</li>
+<li>ToolBorderWindow，工具箱窗口；</li>
+<li>ResizeMode 是指定大小调节样式，有4个取值：</li>
+<li>NoResize，不可调节，同时没有最大最小按钮；</li>
+<li>CanMinimize，不可调节。但可以最小化；（此时最大化按钮不可用）</li>
+<li>CanResize，可调节【默认】；</li>
+<li>CanResizeWithGrid，可根据网格调节；（窗口右下脚显示可调节网格）</li>
+<li>WindowStartLocation 指定窗口初始位置，有3个取值：</li>
+<li>Manual，手工指定位置，表示可以通过设置其Top、Left属性值来决定窗口的初始位置；</li>
+<li>CenterScreen，屏幕中央；</li>
+<li>CenterOwner，父窗体中央；<blockquote>
+<p>另外：</p>
+</blockquote>
+</li>
+<li>MaxWidth、MinWidth、MaxHeight、MinHeight ：表示窗口最大宽度、最小宽度、最大高度、最小高度。可以通过得到和更改这些属性值，来获取和改变窗口的大小和长宽范围。</li>
+<li>TitlebarHeight&#x3D;”45”          &#x2F;&#x2F;修改窗体titlebar高度；</li>
+<li>AllowsTransparency：获取或设置一个值，该值指示窗口的工作区是否支持透明；</li>
+</ul>
+<span id="more"></span>
+
+<p><strong>2.设置窗体无边框：</strong><br>     设置 WindowStyle&#x3D;”None”、  AllowsTransparency&#x3D;”True” 即可。<br>     <em>如下</em>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Window</span></span></span><br><span class="line"><span class="tag">    <span class="attr">x:Class</span>=<span class="string">&quot;WpfApplication1.MainWindow&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns</span>=<span class="string">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:x</span>=<span class="string">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">Title</span>=<span class="string">&quot;MainWindow&quot;</span> <span class="attr">Height</span>=<span class="string">&quot;350&quot;</span> <span class="attr">Width</span>=<span class="string">&quot;525&quot;</span>   </span></span><br><span class="line"><span class="tag">    <span class="attr">WindowStyle</span>=<span class="string">&quot;None&quot;</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">AllowsTransparency</span>=<span class="string">&quot;True&quot;</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">Grid</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">Grid</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">Window</span>&gt;</span>  </span><br></pre></td></tr></table></figure>
+
+<p><strong>3.窗口拖放：</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Window_MouseLeftButtonDown</span>(<span class="params"><span class="built_in">object</span> sender, MouseButtonEventArgs e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.DragMove();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>调用：</em></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.MouseLeftButtonDown += <span class="built_in">delegate</span> &#123; DragMove(); &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>或：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MouseDown=<span class="string">&quot;Window_MouseDown&quot;</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Window_MouseDown</span>(<span class="params"><span class="built_in">object</span> sender, MouseButtonEventArgs e</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (e.LeftButton == MouseButtonState.Pressed)&#123;</span><br><span class="line">        DragMove();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>4.自定义窗体最大化、最小化、关闭</strong><br>如下： </p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">btn_min_Click</span>(<span class="params"><span class="built_in">object</span> sender, RoutedEventArgs e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.WindowState = WindowState.Minimized;     </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">btn_max_Click</span>(<span class="params"><span class="built_in">object</span> sender, RoutedEventArgs e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.WindowState == WindowState.Maximized)&#123;</span><br><span class="line">    	<span class="keyword">this</span>.WindowState = WindowState.Normal; <span class="comment">//还原 </span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       <span class="keyword">this</span>.WindowState = WindowState.Maximized;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">btn_close_Click</span>(<span class="params"><span class="built_in">object</span> sender, RoutedEventArgs e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.Close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>5.窗口阴影：</strong>(WPF4.5)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Window</span> <span class="attr">x:Class</span>=<span class="string">&quot;WPFTest.MainWindow&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns</span>=<span class="string">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:x</span>=<span class="string">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">Title</span>=<span class="string">&quot;MainWindow&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">Width</span>=<span class="string">&quot;525&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">Height</span>=<span class="string">&quot;350&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">WindowChrome.WindowChrome</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">WindowChrome</span> <span class="attr">CaptionHeight</span>=<span class="string">&quot;30&quot;</span></span></span><br><span class="line"><span class="tag">                      <span class="attr">CornerRadius</span>=<span class="string">&quot;0&quot;</span></span></span><br><span class="line"><span class="tag">                      <span class="attr">GlassFrameThickness</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">                      <span class="attr">NonClientFrameEdges</span>=<span class="string">&quot;None&quot;</span></span></span><br><span class="line"><span class="tag">                      <span class="attr">ResizeBorderThickness</span>=<span class="string">&quot;5&quot;</span></span></span><br><span class="line"><span class="tag">                      <span class="attr">UseAeroCaptionButtons</span>=<span class="string">&quot;False&quot;</span> /&gt;</span></span><br><span class="line">    	<span class="tag">&lt;/<span class="name">WindowChrome</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Grid</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Window</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="tooltip"><a href="#tooltip" class="headerlink" title="tooltip"></a>tooltip</h3><p>给某个空间增加tooltip显示详细信息:</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Tip_MouseMove</span>(<span class="params"><span class="built_in">object</span> sender, MouseEventArgs e</span>)</span>&#123;</span><br><span class="line">    ListViewItem listitem = (sender <span class="keyword">as</span> Image).TryFindParent&lt;ListViewItem&gt;();</span><br><span class="line">    FDObject item = (FDObject)listitem.DataContext;           </span><br><span class="line">    <span class="keyword">if</span> (item != <span class="literal">null</span>)&#123;</span><br><span class="line">        (sender <span class="keyword">as</span> Image).ToolTip = item.path;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>直接用control.Tooltip&#x3D;text;   在鼠标移入事件中确定</p>
+<h3 id="System-Drawing-Image对象"><a href="#System-Drawing-Image对象" class="headerlink" title="System.Drawing.Image对象"></a>System.Drawing.Image对象</h3><p><strong>System.Drawing.Image 和 System.Windows.Media.ImageSource 之间转换</strong><br><strong>例：</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">MemoryStream ms = <span class="keyword">new</span> MemoryStream ();</span><br><span class="line"><span class="keyword">var</span> bitmap = <span class="keyword">new</span> BitmapImage();</span><br><span class="line">bitmap.BeginInit();</span><br><span class="line">userImage.Save (ms,System.Drawing.Imaging. ImageFormat.Bmp);</span><br><span class="line">ms.Seek(<span class="number">0</span>, SeekOrigin.Begin);</span><br><span class="line">bitmap.StreamSource = ms;</span><br><span class="line">bitmap.EndInit();</span><br><span class="line">emplImage.Source = bitmap;</span><br><span class="line"><span class="keyword">return</span> emplImage;</span><br></pre></td></tr></table></figure>
+<h3 id="旋转动画："><a href="#旋转动画：" class="headerlink" title="旋转动画："></a>旋转动画：</h3><p><strong>例：</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Button_Click</span>(<span class="params"><span class="built_in">object</span> sender, RoutedEventArgs e</span>)</span>&#123;</span><br><span class="line">    RotateTransform a = <span class="keyword">new</span> RotateTransform();</span><br><span class="line">    Refresh.RenderTransform = a;</span><br><span class="line">    Refresh.RenderTransformOrigin = <span class="keyword">new</span> Point(<span class="number">0.5</span>, <span class="number">0.5</span>);</span><br><span class="line">    DoubleAnimation myDouble = <span class="keyword">new</span> DoubleAnimation(<span class="number">0</span>, <span class="number">360</span>, <span class="keyword">new</span> Duration(TimeSpan.FromSeconds(<span class="number">1</span>)));</span><br><span class="line">    Storyboard story = <span class="keyword">new</span> Storyboard();</span><br><span class="line">    myDouble.RepeatBehavior = RepeatBehavior.Forever;</span><br><span class="line">    story.Children.Add(myDouble);</span><br><span class="line">    Storyboard.SetTarget(myDouble, Refresh);</span><br><span class="line">    Storyboard.SetTargetProperty(myDouble, <span class="keyword">new</span> PropertyPath(<span class="string">&quot;RenderTransform.Angle&quot;</span>));</span><br><span class="line">    story.Begin();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Grid</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextBlock</span> <span class="attr">x:Name</span>=<span class="string">&quot;Refresh&quot;</span>  <span class="attr">VerticalAlignment</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">HorizontalAlignment</span>=<span class="string">&quot;Center&quot;</span>    <span class="attr">Text</span>=<span class="string">&quot;<span class="symbol">&amp;#xe712;</span>&quot;</span>   /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">VerticalAlignment</span>=<span class="string">&quot;Bottom&quot;</span> <span class="attr">HorizontalAlignment</span>=<span class="string">&quot;Center&quot;</span> <span class="attr">Width</span>=<span class="string">&quot;100&quot;</span> <span class="attr">Height</span>=<span class="string">&quot;50&quot;</span> <span class="attr">Click</span>=<span class="string">&quot;Button_Click&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://irisgithub.github.io/2017/03/02/wpf%E7%AC%94%E8%AE%B0/" data-id="clq18rrw50005vf4k3cg71mjw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wpf/" rel="tag">WPF</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/02/JS%E5%AF%B9%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JS对字符串操作
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/02/my-first-blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">my first blog</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/font-end/">Font-end</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">Others</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/others/">others</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wpf/" rel="tag">WPF</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/js/" style="font-size: 20px;">JavaScript</a> <a href="/tags/wpf/" style="font-size: 10px;">WPF</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/09/11/work/">我的工作经历</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/26/%E5%85%A5%E5%9D%91Vue-js/">Vue.js使用</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/17/%E4%B8%80%E6%AC%A1http%E8%AF%B7%E6%B1%82/">一次http请求</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/01/%E5%8E%BB%E6%8E%89jQuery/">去掉jQuery</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/17/git%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">git学习记录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 Iris<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  </div>
+</body>
+</html>
