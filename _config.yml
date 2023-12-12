@@ -69,8 +69,8 @@ pagination_dir: page
 plugins: 
   - hexo-generator-feed
 ## Themes: https://hexo.io/themes/
-#theme: yilia
-remote_theme: yilia
+theme: yilia
+#remote_theme: yilia
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
