@@ -66,10 +66,11 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
-plugins_dir: hexo-generator-feed
+plugins: 
+  - hexo-generator-feed
 ## Themes: https://hexo.io/themes/
 theme: yilia
-#remote_theme: yilia
+remote_theme: yilia
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
