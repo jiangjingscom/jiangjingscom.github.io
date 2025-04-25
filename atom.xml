@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Iris&#39; Blog</title>
+  <title>Jing&#39; Blog</title>
   <icon>https://jiangjingscom.github.io/source/assets/img/avatar.jpg</icon>
   <subtitle>step by step</subtitle>
   <link href="https://jiangjingscom.github.io/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://jiangjingscom.github.io/</id>
   
   <author>
-    <name>Iris</name>
+    <name>Jing</name>
     
   </author>
   
